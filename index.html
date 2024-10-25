@@ -1,0 +1,3797 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sprunki Dandy's World</title>
+    <meta name="description" content="Sprunki Dandy's World is the ultimate online game for music lovers and creative minds. This interactive experience combines the fun ...">
+
+    <meta property="og:image" content="/img/sprunki-dandys-world.png">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-comments.css">
+    <link rel="stylesheet" type="text/css" href="/css/user.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/bootstrap-icons.css">
+     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Font Awesome icons (free version)-->
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+
+<style>
+html { overflow-x: hidden; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 19px;
+    line-height: 2em;
+    overflow-x: hidden;
+}
+
+p, span { color: #141312; }
+hr {
+    border-top-color: #CCC;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-control::-webkit-input-placeholder { color: #141312; }
+.form-control:-ms-input-placeholder { color: #141312; }
+.form-control::placeholder { color: #141312; }
+
+.tm-header {
+    background-color: #b431df;
+    color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 400px;
+    overflow-y: visible;
+}
+
+.tm-header-wrapper {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.tm-header-wrapper::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.tm-site-header {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.tm-site-logo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tm-site-logo i { color: #b431df; }
+
+.tm-main {
+    margin-left: 400px;
+    padding: 80px 100px 25px;
+}
+
+.tm-post { max-width: 470px; }
+
+.tm-row {
+    max-width: 980px;
+    justify-content: space-between;
+}
+
+.tm-nav { margin-bottom: 100px; }
+
+.tm-nav-item {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.tm-nav-link {
+    color: white;
+    background-color: transparent;
+    height: 75px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    padding: 30px;
+}
+
+.tm-nav-item:hover .tm-nav-link,
+.tm-nav-item.active .tm-nav-link
+ {
+    color: #b431df;
+    background-color: white;
+    text-decoration: none;
+}
+
+.tm-nav ul { position: relative; }
+
+.tm-nav-item:hover:after,
+.tm-nav-item.active:after {
+    content: '';
+    width: 100%;
+    max-width: 300px;
+    height: 75px;
+    display: block;
+    border: 1px solid white;
+    margin-left: 10px;
+    margin-top: -65px;
+    position: absolute;
+    z-index: -1000;
+}
+
+.tm-nav-link i { margin-right: 37px; }
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.tm-nav { margin-left: -30px; }
+
+.tm-social-link {
+    display: inline-block;
+    background-color: white;
+    font-size: 1.4rem;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.tm-social-icon {
+    color: #b431df;
+    transition: all 0.3s ease;
+}
+
+.tm-social-link:hover .tm-social-icon.fa-facebook { color: #3b5998; }
+.tm-social-link:hover .tm-social-icon.fa-twitter { color: #00acee; }
+.tm-social-link:hover .tm-social-icon.fa-instagram { color: #3f729b; }
+.tm-social-link:hover .tm-social-icon.fa-linkedin { color: #0e76a8; }
+.navbar-toggler { display: none; }
+
+.tm-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-inline .form-control.tm-search-input {
+    display: block;
+    height: 60px;
+    width: 480px;
+    margin-right: 30px;
+    border-radius: 0;
+    border-color: #b431df;
+    font-size: 1.2rem;
+}
+
+.tm-search-button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-color: #b431df;
+    transition: all 0.3s ease;
+}
+
+.tm-search-button:hover { background-color: #09b6b6; }
+
+.tm-search-icon {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.tm-post-link {
+    display: block;
+    position: relative;
+	cursor: pointer;
+}
+
+.tm-post-link-inner {
+    overflow: hidden;
+    background: #3085a3;
+    height: 300px;
+}
+
+.tm-post-link img {
+    position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+}
+
+.effect-lily img {
+	max-width: none;
+	width: -webkit-calc(100% + 50px);
+	width: calc(100% + 50px);
+	opacity: 0.7;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-40px,0, 0);
+	transform: translate3d(-40px,0,0);
+}
+
+.effect-lily:hover img { opacity: 1; }
+
+.effect-lily:hover img {
+    -webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.tm-post { margin-bottom: 25px; }
+
+.tm-new-badge {
+    top: 25px;
+    right: -10px;
+    background-color: #b431df;
+    color: white;
+    padding: 5px 20px;
+}
+
+.tm-post-title {
+    font-size: 1.7rem;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.tm-h3 {
+    font-size: 1.3rem;
+    color: #141312;
+}
+
+.tm-post-link:hover .tm-post-title { color: #b431df; }
+
+.tm-btn {
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.tm-btn-primary {
+    background-color: #b431df;
+    color: white;
+    padding: 8px 43px;
+    border: none;
+}
+
+.game-iframe-container {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.tm-btn-small { padding: 8px 33px; }
+
+.tm-btn-primary:hover {
+    background-color: #09b6b6;
+    color: white;
+}
+
+.tm-paging-nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.tm-paging-nav ul li:last-child { margin-right: 0; }
+
+.tm-paging-link {
+    background-color: #F0F0F0;
+    color: #141312;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tm-paging-item .tm-paging-link:hover,
+.tm-paging-item.active .tm-paging-link {
+    background-color: #b431df;
+    color: white;
+}
+
+.tm-btn.disabled {
+    background-color: #F0F0F0;
+    color: #141312;
+    cursor: not-allowed;
+}
+
+.tm-external-link { color: #b431df; }
+.tm-external-link:hover { color: #09b6b6; }
+
+.tm-paging-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tm-prev-next-wrapper,
+.tm-paging-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tm-copyright { text-align: right; }
+
+/* Single Post page */
+hr.tm-hr-primary { border-top: 5px solid #b431df; }
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.tm-comment {
+    display: flex;
+    align-items: flex-start;
+}
+
+.tm-comment-figure {
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+.tm-comment-reply { padding-left: 37px; }
+
+.form-control {
+    height: 45px;
+    border-color: #b431df;
+    border-radius: 0;
+}
+
+.tm-comment-form { max-width: 360px; }
+.tm-category-list { list-style-type: none; }
+figure { margin: 0; }
+figcaption { line-height: 1.4; }
+
+.tm-post-full { max-width: 600px; }
+
+.tm-post-sidebar {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.tm-pt-20 { padding-top: 20px; }
+.tm-pt-30 { padding-top: 30px; }
+.tm-pt-45 { padding-top: 45px; }
+.tm-pt-60 { padding-top: 25px; }
+.tm-mb-40 { margin-bottom: 40px; }
+.tm-mb-45 { margin-bottom: 45px; }
+.tm-mb-55 { margin-bottom: 55px; }
+.tm-mb-60 { margin-bottom: 60px; }
+.tm-mb-65 { margin-bottom: 65px; }
+.tm-mb-75 { margin-bottom: 75px; }
+.tm-mb-80 { margin-bottom: 80px; }
+.tm-mb-120 { margin-bottom: 120px; }
+.tm-mt-40 { margin-top: 40px; }
+.tm-mt-100 { margin-top: 100px; }
+.tm-mr-20 { margin-right: 20px; }
+.tm-color-primary, span.tm-color-primary { color: #373532; }
+a.tm-color-gray, .tm-color-gray { color: #141312; }
+a.tm-color-gray:hover { color: #373532; }
+.tm-bg-gray { background-color: #F3F4F5; }
+button:focus { outline: none; }
+a:hover {
+    text-decoration: none;
+    color: #048c8c;
+}
+
+a:hover figcaption { color: #056767; }
+.img-thumbnail { max-width: none; }
+.tm-about-pad { padding: 40px 35px; }
+.tm-person { max-width: 430px; }
+.tm-line-height-short { line-height: 1.8; }
+
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:477px;
+    width:100%;
+}
+
+.tm-social-links li {
+    list-style: none;
+    display: inline-block;
+}
+
+.tm-social-links li a {
+    display: block;
+    color: white;
+    background-color: #b431df;
+    width: 45px;
+    height: 45px;
+    margin-right: 15px;
+}
+
+.tm-social-links li a i { transition: all 0.3s ease; }
+.tm-social-links li a:hover i.fa-facebook { color: #3b5998; }
+.tm-social-links li a:hover i.fa-twitter { color: #00acee; }
+.tm-social-links li a:hover i.fa-youtube { color: #c4302b; }
+.tm-social-links li a:hover i.fa-instagram { color: #3f729b; }
+
+.tm-contact-right { padding-left: 55px; }
+.tm-contact-form { max-width: 488px; }
+
+.tm-contact-form input,
+.tm-contact-form textarea {
+    max-width: 360px;
+}
+
+.tm-contact-form label { font-size: 1.4rem; }
+.tm-contact-form .form-group { display: flex; }
+
+@media (max-width: 1540px) {
+    .tm-header { width: 320px; }
+
+    .tm-main {
+        margin-left: 320px;
+        width: calc(100% - 320px);
+    }
+}
+
+@media (max-width: 1300px) {
+    .tm-about-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1288px) {
+    .tm-social-link { margin-right: 10px; }
+}
+
+@media (max-width: 1199px) {
+    .tm-post-sidebar { max-width: 440px; }
+    .form-inline .form-control.tm-search-input { width: 420px; }
+}
+
+@media (max-width: 1086px) {
+    .form-inline .form-control.tm-search-input {
+        width: 80%;
+        margin-right: 15px;
+    }
+}
+
+/* Hide sidebar */
+@media (max-width: 991px) {
+    .tm-header {
+        width: 320px;
+        left: -320px;
+        transition: all 0.3s ease;
+    }
+
+    .tm-header.show { left: 0; }
+    .tm-header-wrapper { padding: 15px; }
+
+    .navbar-toggler {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(56, 204, 204, 0.75);
+        color: white;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        top: 5px;
+    }
+
+    .tm-header.show .navbar-toggler { left: 320px; }
+
+    .tm-main {
+        margin-left: 0;
+        padding: 50px 40px;
+        width: 100%;
+    }
+
+    .tm-post-sidebar {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .tm-person-col { width: 50%; }
+    .tm-person { flex-direction: row; }
+
+    .tm-contact-left {
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+    }
+
+    .tm-contact-right {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+
+    .tm-post-full { max-width: none; }
+}
+
+@media (max-width: 767px) {
+    .form-inline .form-control.tm-search-input {
+        width: 70%;
+        max-width: 375px;
+        margin-right: 15px;
+    }
+
+    .tm-search-form { justify-content: flex-start; }
+    .tm-main { padding: 60px 10px; }
+
+    .tm-prev-next-wrapper,
+    .tm-paging-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .tm-paging-wrapper {
+        margin-top: 50px;
+        justify-content: flex-start;
+    }
+
+    .tm-copyright { text-align: left; }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .tm-person-col,
+    .tm-contact-left,
+    .tm-contact-right {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .tm-contact-right { padding-left: 15px; }
+
+    .tm-post-col,
+    .tm-aside-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .tm-post-sidebar {
+        margin-left: 0;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 709px) {
+    .tm-person-col { width: 100%; }
+}
+
+@media (max-width: 991px) and (min-width: 826px) {
+    .tm-about-col {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+
+    .tm-person { flex-direction: row; }
+}
+
+@media (max-width: 630px) {
+    .tm-contact-left,
+    .tm-contact-right {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .tm-contact-right { padding-left: 15px; }
+}
+
+@media (max-width: 575px) {
+    .tm-contact-form input,
+    .tm-contact-form textarea {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tm-person-col { width: 100%; }
+    .tm-person { flex-direction: row; }
+}
+
+@media (max-width: 380px) {
+    .tm-person img { max-width: 120px; }
+}
+</style>
+
+
+<script src="https://kit.fontawesome.com/9511ec6667.js" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333300682513704"
+     crossorigin="anonymous"></script>
+     </head>
+
+<style>
+.fa-yammer:before {
+  content: "\f840"; }
+
+.fa-btc:before {
+  content: "\f15a"; }
+
+.fa-dribbble:before {
+  content: "\f17d"; }
+
+.fa-stumbleupon-circle:before {
+  content: "\f1a3"; }
+
+.fa-internet-explorer:before {
+  content: "\f26b"; }
+
+.fa-stubber:before {
+  content: "\e5c7"; }
+
+.fa-telegram:before {
+  content: "\f2c6"; }
+
+.fa-telegram-plane:before {
+  content: "\f2c6"; }
+
+.fa-old-republic:before {
+  content: "\f510"; }
+
+.fa-odysee:before {
+  content: "\e5c6"; }
+
+.fa-square-whatsapp:before {
+  content: "\f40c"; }
+
+.fa-whatsapp-square:before {
+  content: "\f40c"; }
+
+.fa-node-js:before {
+  content: "\f3d3"; }
+
+.fa-edge-legacy:before {
+  content: "\e078"; }
+
+.fa-slack:before {
+  content: "\f198"; }
+
+.fa-slack-hash:before {
+  content: "\f198"; }
+
+.fa-medrt:before {
+  content: "\f3c8"; }
+
+.fa-usb:before {
+  content: "\f287"; }
+
+.fa-tumblr:before {
+  content: "\f173"; }
+
+.fa-vaadin:before {
+  content: "\f408"; }
+
+.fa-quora:before {
+  content: "\f2c4"; }
+
+.fa-square-x-twitter:before {
+  content: "\e61a"; }
+
+.fa-reacteurope:before {
+  content: "\f75d"; }
+
+.fa-medium:before {
+  content: "\f23a"; }
+
+.fa-medium-m:before {
+  content: "\f23a"; }
+
+.fa-amilia:before {
+  content: "\f36d"; }
+
+.fa-mixcloud:before {
+  content: "\f289"; }
+
+.fa-flipboard:before {
+  content: "\f44d"; }
+
+.fa-viacoin:before {
+  content: "\f237"; }
+
+.fa-critical-role:before {
+  content: "\f6c9"; }
+
+.fa-sitrox:before {
+  content: "\e44a"; }
+
+.fa-discourse:before {
+  content: "\f393"; }
+
+.fa-joomla:before {
+  content: "\f1aa"; }
+
+.fa-mastodon:before {
+  content: "\f4f6"; }
+
+.fa-airbnb:before {
+  content: "\f834"; }
+
+.fa-wolf-pack-battalion:before {
+  content: "\f514"; }
+
+.fa-buy-n-large:before {
+  content: "\f8a6"; }
+
+.fa-gulp:before {
+  content: "\f3ae"; }
+
+.fa-creative-commons-sampling-plus:before {
+  content: "\f4f1"; }
+
+.fa-strava:before {
+  content: "\f428"; }
+
+.fa-ember:before {
+  content: "\f423"; }
+
+.fa-canadian-maple-leaf:before {
+  content: "\f785"; }
+
+.fa-teamspeak:before {
+  content: "\f4f9"; }
+
+.fa-pushed:before {
+  content: "\f3e1"; }
+
+.fa-wordpress-simple:before {
+  content: "\f411"; }
+
+.fa-nutritionix:before {
+  content: "\f3d6"; }
+
+.fa-wodu:before {
+  content: "\e088"; }
+
+.fa-google-pay:before {
+  content: "\e079"; }
+
+.fa-intercom:before {
+  content: "\f7af"; }
+
+.fa-zhihu:before {
+  content: "\f63f"; }
+
+.fa-korvue:before {
+  content: "\f42f"; }
+
+.fa-pix:before {
+  content: "\e43a"; }
+
+.fa-steam-symbol:before {
+  content: "\f3f6"; }
+:root, :host {
+  --fa-style-family-duotone: 'Font Awesome 6 Duotone';
+  --fa-font-duotone: normal 900 1em/1 'Font Awesome 6 Duotone'; }
+
+@font-face {
+  font-family: 'Font Awesome 6 Duotone';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-duotone-900.woff2") format("woff2"), url("../webfonts/fa-duotone-900.ttf") format("truetype"); }
+
+.fad,
+.fa-duotone {
+  position: relative;
+  font-weight: 900;
+  letter-spacing: normal; }
+
+.fad::before,
+.fa-duotone::before {
+  position: absolute;
+  color: var(--fa-primary-color, inherit);
+  opacity: var(--fa-primary-opacity, 1); }
+
+.fad::after,
+.fa-duotone::after {
+  color: var(--fa-secondary-color, inherit);
+  opacity: var(--fa-secondary-opacity, 0.4); }
+
+.fa-swap-opacity .fad::before,
+.fa-swap-opacity .fa-duotone::before,
+.fad.fa-swap-opacity::before,
+.fa-duotone.fa-swap-opacity::before {
+  opacity: var(--fa-secondary-opacity, 0.4); }
+
+.fa-swap-opacity .fad::after,
+.fa-swap-opacity .fa-duotone::after,
+.fad.fa-swap-opacity::after,
+.fa-duotone.fa-swap-opacity::after {
+  opacity: var(--fa-primary-opacity, 1); }
+
+.fad.fa-inverse,
+.fa-duotone.fa-inverse {
+  color: var(--fa-inverse, #fff); }
+
+.fad.fa-stack-1x, .fad.fa-stack-2x,
+.fa-duotone.fa-stack-1x, .fa-duotone.fa-stack-2x {
+  position: absolute; }
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons */
+
+.fad.fa-0::after, .fa-duotone.fa-0::after {
+  content: "\30\30"; }
+
+.fad.fa-1::after, .fa-duotone.fa-1::after {
+  content: "\31\31"; }
+
+.fad.fa-2::after, .fa-duotone.fa-2::after {
+  content: "\32\32"; }
+
+.fad.fa-3::after, .fa-duotone.fa-3::after {
+  content: "\33\33"; }
+
+.fad.fa-4::after, .fa-duotone.fa-4::after {
+  content: "\34\34"; }
+
+.fad.fa-5::after, .fa-duotone.fa-5::after {
+  content: "\35\35"; }
+
+.fad.fa-6::after, .fa-duotone.fa-6::after {
+  content: "\36\36"; }
+
+.fad.fa-7::after, .fa-duotone.fa-7::after {
+  content: "\37\37"; }
+
+.fad.fa-8::after, .fa-duotone.fa-8::after {
+  content: "\38\38"; }
+
+.fad.fa-9::after, .fa-duotone.fa-9::after {
+  content: "\39\39"; }
+
+.fad.fa-fill-drip::after, .fa-duotone.fa-fill-drip::after {
+  content: "\f576\f576"; }
+
+.fad.fa-arrows-to-circle::after, .fa-duotone.fa-arrows-to-circle::after {
+  content: "\e4bd\e4bd"; }
+
+.fad.fa-circle-chevron-right::after, .fa-duotone.fa-circle-chevron-right::after {
+  content: "\f138\f138"; }
+
+.fad.fa-chevron-circle-right::after, .fa-duotone.fa-chevron-circle-right::after {
+  content: "\f138\f138"; }
+
+.fad.fa-wagon-covered::after, .fa-duotone.fa-wagon-covered::after {
+  content: "\f8ee\f8ee"; }
+
+.fad.fa-line-height::after, .fa-duotone.fa-line-height::after {
+  content: "\f871\f871"; }
+
+.fad.fa-bagel::after, .fa-duotone.fa-bagel::after {
+  content: "\e3d7\e3d7"; }
+
+.fad.fa-transporter-7::after, .fa-duotone.fa-transporter-7::after {
+  content: "\e2a8\e2a8"; }
+
+.fad.fa-at::after, .fa-duotone.fa-at::after {
+  content: "\40\40"; }
+
+.fad.fa-rectangles-mixed::after, .fa-duotone.fa-rectangles-mixed::after {
+  content: "\e323\e323"; }
+
+.fad.fa-phone-arrow-up-right::after, .fa-duotone.fa-phone-arrow-up-right::after {
+  content: "\e224\e224"; }
+
+.fad.fa-phone-arrow-up::after, .fa-duotone.fa-phone-arrow-up::after {
+  content: "\e224\e224"; }
+
+.fad.fa-phone-outgoing::after, .fa-duotone.fa-phone-outgoing::after {
+  content: "\e224\e224"; }
+
+.fad.fa-trash-can::after, .fa-duotone.fa-trash-can::after {
+  content: "\f2ed\f2ed"; }
+
+.fad.fa-trash-alt::after, .fa-duotone.fa-trash-alt::after {
+  content: "\f2ed\f2ed"; }
+
+.fad.fa-circle-l::after, .fa-duotone.fa-circle-l::after {
+  content: "\e114\e114"; }
+
+.fad.fa-head-side-goggles::after, .fa-duotone.fa-head-side-goggles::after {
+  content: "\f6ea\f6ea"; }
+
+.fad.fa-head-vr::after, .fa-duotone.fa-head-vr::after {
+  content: "\f6ea\f6ea"; }
+
+.fad.fa-text-height::after, .fa-duotone.fa-text-height::after {
+  content: "\f034\f034"; }
+
+.fad.fa-user-xmark::after, .fa-duotone.fa-user-xmark::after {
+  content: "\f235\f235"; }
+
+.fad.fa-user-times::after, .fa-duotone.fa-user-times::after {
+  content: "\f235\f235"; }
+
+.fad.fa-face-hand-yawn::after, .fa-duotone.fa-face-hand-yawn::after {
+  content: "\e379\e379"; }
+
+.fad.fa-gauge-simple-min::after, .fa-duotone.fa-gauge-simple-min::after {
+  content: "\f62d\f62d"; }
+
+.fad.fa-tachometer-slowest::after, .fa-duotone.fa-tachometer-slowest::after {
+  content: "\f62d\f62d"; }
+
+.fad.fa-stethoscope::after, .fa-duotone.fa-stethoscope::after {
+  content: "\f0f1\f0f1"; }
+
+.fad.fa-coffin::after, .fa-duotone.fa-coffin::after {
+  content: "\f6c6\f6c6"; }
+
+.fad.fa-message::after, .fa-duotone.fa-message::after {
+  content: "\f27a\f27a"; }
+
+.fad.fa-comment-alt::after, .fa-duotone.fa-comment-alt::after {
+  content: "\f27a\f27a"; }
+
+.fad.fa-salad::after, .fa-duotone.fa-salad::after {
+  content: "\f81e\f81e"; }
+
+.fad.fa-bowl-salad::after, .fa-duotone.fa-bowl-salad::after {
+  content: "\f81e\f81e"; }
+
+.fad.fa-info::after, .fa-duotone.fa-info::after {
+  content: "\f129\f129"; }
+
+.fad.fa-robot-astromech::after, .fa-duotone.fa-robot-astromech::after {
+  content: "\e2d2\e2d2"; }
+
+.fad.fa-ring-diamond::after, .fa-duotone.fa-ring-diamond::after {
+  content: "\e5ab\e5ab"; }
+
+.fad.fa-fondue-pot::after, .fa-duotone.fa-fondue-pot::after {
+  content: "\e40d\e40d"; }
+
+.fad.fa-theta::after, .fa-duotone.fa-theta::after {
+  content: "\f69e\f69e"; }
+
+.fad.fa-face-hand-peeking::after, .fa-duotone.fa-face-hand-peeking::after {
+  content: "\e481\e481"; }
+
+.fad.fa-square-user::after, .fa-duotone.fa-square-user::after {
+  content: "\e283\e283"; }
+
+.fad.fa-down-left-and-up-right-to-center::after, .fa-duotone.fa-down-left-and-up-right-to-center::after {
+  content: "\f422\f422"; }
+
+.fad.fa-compress-alt::after, .fa-duotone.fa-compress-alt::after {
+  content: "\f422\f422"; }
+
+.fad.fa-explosion::after, .fa-duotone.fa-explosion::after {
+  content: "\e4e9\e4e9"; }
+
+.fad.fa-file-lines::after, .fa-duotone.fa-file-lines::after {
+  content: "\f15c\f15c"; }
+
+.fad.fa-file-alt::after, .fa-duotone.fa-file-alt::after {
+  content: "\f15c\f15c"; }
+
+.fad.fa-file-text::after, .fa-duotone.fa-file-text::after {
+  content: "\f15c\f15c"; }
+
+.fad.fa-wave-square::after, .fa-duotone.fa-wave-square::after {
+  content: "\f83e\f83e"; }
+
+.fad.fa-ring::after, .fa-duotone.fa-ring::after {
+  content: "\f70b\f70b"; }
+
+.fad.fa-building-un::after, .fa-duotone.fa-building-un::after {
+  content: "\e4d9\e4d9"; }
+
+.fad.fa-dice-three::after, .fa-duotone.fa-dice-three::after {
+  content: "\f527\f527"; }
+
+.fad.fa-tire-pressure-warning::after, .fa-duotone.fa-tire-pressure-warning::after {
+  content: "\f633\f633"; }
+
+.fad.fa-wifi-fair::after, .fa-duotone.fa-wifi-fair::after {
+  content: "\f6ab\f6ab"; }
+
+.fad.fa-wifi-2::after, .fa-duotone.fa-wifi-2::after {
+  content: "\f6ab\f6ab"; }
+
+.fad.fa-calendar-days::after, .fa-duotone.fa-calendar-days::after {
+  content: "\f073\f073"; }
+
+.fad.fa-calendar-alt::after, .fa-duotone.fa-calendar-alt::after {
+  content: "\f073\f073"; }
+
+.fad.fa-mp3-player::after, .fa-duotone.fa-mp3-player::after {
+  content: "\f8ce\f8ce"; }
+
+.fad.fa-anchor-circle-check::after, .fa-duotone.fa-anchor-circle-check::after {
+  content: "\e4aa\e4aa"; }
+
+.fad.fa-tally-4::after, .fa-duotone.fa-tally-4::after {
+  content: "\e297\e297"; }
+
+.fad.fa-rectangle-history::after, .fa-duotone.fa-rectangle-history::after {
+  content: "\e4a2\e4a2"; }
+
+.fad.fa-building-circle-arrow-right::after, .fa-duotone.fa-building-circle-arrow-right::after {
+  content: "\e4d1\e4d1"; }
+
+.fad.fa-volleyball::after, .fa-duotone.fa-volleyball::after {
+  content: "\f45f\f45f"; }
+
+.fad.fa-volleyball-ball::after, .fa-duotone.fa-volleyball-ball::after {
+  content: "\f45f\f45f"; }
+
+.fad.fa-sun-haze::after, .fa-duotone.fa-sun-haze::after {
+  content: "\f765\f765"; }
+
+.fad.fa-text-size::after, .fa-duotone.fa-text-size::after {
+  content: "\f894\f894"; }
+
+.fad.fa-ufo::after, .fa-duotone.fa-ufo::after {
+  content: "\e047\e047"; }
+
+.fad.fa-fork::after, .fa-duotone.fa-fork::after {
+  content: "\f2e3\f2e3"; }
+
+.fad.fa-utensil-fork::after, .fa-duotone.fa-utensil-fork::after {
+  content: "\f2e3\f2e3"; }
+
+.fad.fa-arrows-up-to-line::after, .fa-duotone.fa-arrows-up-to-line::after {
+  content: "\e4c2\e4c2"; }
+
+.fad.fa-mobile-signal::after, .fa-duotone.fa-mobile-signal::after {
+  content: "\e1ef\e1ef"; }
+
+.fad.fa-barcode-scan::after, .fa-duotone.fa-barcode-scan::after {
+  content: "\f465\f465"; }
+
+.fad.fa-sort-down::after, .fa-duotone.fa-sort-down::after {
+  content: "\f0dd\f0dd"; }
+
+.fad.fa-sort-desc::after, .fa-duotone.fa-sort-desc::after {
+  content: "\f0dd\f0dd"; }
+
+.fad.fa-folder-arrow-down::after, .fa-duotone.fa-folder-arrow-down::after {
+  content: "\e053\e053"; }
+
+.fad.fa-folder-download::after, .fa-duotone.fa-folder-download::after {
+  content: "\e053\e053"; }
+
+.fad.fa-circle-minus::after, .fa-duotone.fa-circle-minus::after {
+  content: "\f056\f056"; }
+
+.fad.fa-minus-circle::after, .fa-duotone.fa-minus-circle::after {
+  content: "\f056\f056"; }
+
+.fad.fa-face-icicles::after, .fa-duotone.fa-face-icicles::after {
+  content: "\e37c\e37c"; }
+
+.fad.fa-shovel::after, .fa-duotone.fa-shovel::after {
+  content: "\f713\f713"; }
+
+.fad.fa-door-open::after, .fa-duotone.fa-door-open::after {
+  content: "\f52b\f52b"; }
+
+.fad.fa-films::after, .fa-duotone.fa-films::after {
+  content: "\e17a\e17a"; }
+
+.fad.fa-right-from-bracket::after, .fa-duotone.fa-right-from-bracket::after {
+  content: "\f2f5\f2f5"; }
+
+.fad.fa-sign-out-alt::after, .fa-duotone.fa-sign-out-alt::after {
+  content: "\f2f5\f2f5"; }
+
+.fad.fa-face-glasses::after, .fa-duotone.fa-face-glasses::after {
+  content: "\e377\e377"; }
+
+.fad.fa-nfc::after, .fa-duotone.fa-nfc::after {
+  content: "\e1f7\e1f7"; }
+
+.fad.fa-atom::after, .fa-duotone.fa-atom::after {
+  content: "\f5d2\f5d2"; }
+
+.fad.fa-soap::after, .fa-duotone.fa-soap::after {
+  content: "\e06e\e06e"; }
+
+.fad.fa-icons::after, .fa-duotone.fa-icons::after {
+  content: "\f86d\f86d"; }
+
+.fad.fa-heart-music-camera-bolt::after, .fa-duotone.fa-heart-music-camera-bolt::after {
+  content: "\f86d\f86d"; }
+
+.fad.fa-microphone-lines-slash::after, .fa-duotone.fa-microphone-lines-slash::after {
+  content: "\f539\f539"; }
+
+.fad.fa-microphone-alt-slash::after, .fa-duotone.fa-microphone-alt-slash::after {
+  content: "\f539\f539"; }
+
+.fad.fa-closed-captioning-slash::after, .fa-duotone.fa-closed-captioning-slash::after {
+  content: "\e135\e135"; }
+
+.fad.fa-calculator-simple::after, .fa-duotone.fa-calculator-simple::after {
+  content: "\f64c\f64c"; }
+
+.fad.fa-calculator-alt::after, .fa-duotone.fa-calculator-alt::after {
+  content: "\f64c\f64c"; }
+
+.fad.fa-bridge-circle-check::after, .fa-duotone.fa-bridge-circle-check::after {
+  content: "\e4c9\e4c9"; }
+
+.fad.fa-sliders-up::after, .fa-duotone.fa-sliders-up::after {
+  content: "\f3f1\f3f1"; }
+
+.fad.fa-sliders-v::after, .fa-duotone.fa-sliders-v::after {
+  content: "\f3f1\f3f1"; }
+
+.fad.fa-location-minus::after, .fa-duotone.fa-location-minus::after {
+  content: "\f609\f609"; }
+
+.fad.fa-map-marker-minus::after, .fa-duotone.fa-map-marker-minus::after {
+  content: "\f609\f609"; }
+
+.fad.fa-pump-medical::after, .fa-duotone.fa-pump-medical::after {
+  content: "\e06a\e06a"; }
+
+.fad.fa-fingerprint::after, .fa-duotone.fa-fingerprint::after {
+  content: "\f577\f577"; }
+
+.fad.fa-ski-boot::after, .fa-duotone.fa-ski-boot::after {
+  content: "\e3cc\e3cc"; }
+
+.fad.fa-standard-definition::after, .fa-duotone.fa-standard-definition::after {
+  content: "\e28a\e28a"; }
+
+.fad.fa-rectangle-sd::after, .fa-duotone.fa-rectangle-sd::after {
+  content: "\e28a\e28a"; }
+
+.fad.fa-h1::after, .fa-duotone.fa-h1::after {
+  content: "\f313\f313"; }
+
+.fad.fa-hand-point-right::after, .fa-duotone.fa-hand-point-right::after {
+  content: "\f0a4\f0a4"; }
+
+.fad.fa-magnifying-glass-location::after, .fa-duotone.fa-magnifying-glass-location::after {
+  content: "\f689\f689"; }
+
+.fad.fa-search-location::after, .fa-duotone.fa-search-location::after {
+  content: "\f689\f689"; }
+
+.fad.fa-message-bot::after, .fa-duotone.fa-message-bot::after {
+  content: "\e3b8\e3b8"; }
+
+.fad.fa-forward-step::after, .fa-duotone.fa-forward-step::after {
+  content: "\f051\f051"; }
+
+.fad.fa-step-forward::after, .fa-duotone.fa-step-forward::after {
+  content: "\f051\f051"; }
+
+.fad.fa-face-smile-beam::after, .fa-duotone.fa-face-smile-beam::after {
+  content: "\f5b8\f5b8"; }
+
+.fad.fa-smile-beam::after, .fa-duotone.fa-smile-beam::after {
+  content: "\f5b8\f5b8"; }
+
+.fad.fa-light-ceiling::after, .fa-duotone.fa-light-ceiling::after {
+  content: "\e016\e016"; }
+
+.fad.fa-message-exclamation::after, .fa-duotone.fa-message-exclamation::after {
+  content: "\f4a5\f4a5"; }
+
+.fad.fa-comment-alt-exclamation::after, .fa-duotone.fa-comment-alt-exclamation::after {
+  content: "\f4a5\f4a5"; }
+
+.fad.fa-bowl-scoop::after, .fa-duotone.fa-bowl-scoop::after {
+  content: "\e3de\e3de"; }
+
+.fad.fa-bowl-shaved-ice::after, .fa-duotone.fa-bowl-shaved-ice::after {
+  content: "\e3de\e3de"; }
+
+.fad.fa-square-x::after, .fa-duotone.fa-square-x::after {
+  content: "\e286\e286"; }
+
+.fad.fa-utility-pole-double::after, .fa-duotone.fa-utility-pole-double::after {
+  content: "\e2c4\e2c4"; }
+
+.fad.fa-flag-checkered::after, .fa-duotone.fa-flag-checkered::after {
+  content: "\f11e\f11e"; }
+
+.fad.fa-chevrons-up::after, .fa-duotone.fa-chevrons-up::after {
+  content: "\f325\f325"; }
+
+.fad.fa-chevron-double-up::after, .fa-duotone.fa-chevron-double-up::after {
+  content: "\f325\f325"; }
+
+.fad.fa-football::after, .fa-duotone.fa-football::after {
+  content: "\f44e\f44e"; }
+
+.fad.fa-football-ball::after, .fa-duotone.fa-football-ball::after {
+  content: "\f44e\f44e"; }
+
+.fad.fa-user-vneck::after, .fa-duotone.fa-user-vneck::after {
+  content: "\e461\e461"; }
+
+.fad.fa-school-circle-exclamation::after, .fa-duotone.fa-school-circle-exclamation::after {
+  content: "\e56c\e56c"; }
+
+.fad.fa-crop::after, .fa-duotone.fa-crop::after {
+  content: "\f125\f125"; }
+
+.fad.fa-angles-down::after, .fa-duotone.fa-angles-down::after {
+  content: "\f103\f103"; }
+
+.fad.fa-angle-double-down::after, .fa-duotone.fa-angle-double-down::after {
+  content: "\f103\f103"; }
+
+.fad.fa-users-rectangle::after, .fa-duotone.fa-users-rectangle::after {
+  content: "\e594\e594"; }
+
+.fad.fa-people-roof::after, .fa-duotone.fa-people-roof::after {
+  content: "\e537\e537"; }
+
+.fad.fa-square-arrow-right::after, .fa-duotone.fa-square-arrow-right::after {
+  content: "\f33b\f33b"; }
+
+.fad.fa-arrow-square-right::after, .fa-duotone.fa-arrow-square-right::after {
+  content: "\f33b\f33b"; }
+
+.fad.fa-location-plus::after, .fa-duotone.fa-location-plus::after {
+  content: "\f60a\f60a"; }
+
+.fad.fa-map-marker-plus::after, .fa-duotone.fa-map-marker-plus::after {
+  content: "\f60a\f60a"; }
+
+.fad.fa-lightbulb-exclamation-on::after, .fa-duotone.fa-lightbulb-exclamation-on::after {
+  content: "\e1ca\e1ca"; }
+
+.fad.fa-people-line::after, .fa-duotone.fa-people-line::after {
+  content: "\e534\e534"; }
+
+.fad.fa-beer-mug-empty::after, .fa-duotone.fa-beer-mug-empty::after {
+  content: "\f0fc\f0fc"; }
+
+.fad.fa-beer::after, .fa-duotone.fa-beer::after {
+  content: "\f0fc\f0fc"; }
+
+.fad.fa-crate-empty::after, .fa-duotone.fa-crate-empty::after {
+  content: "\e151\e151"; }
+
+.fad.fa-diagram-predecessor::after, .fa-duotone.fa-diagram-predecessor::after {
+  content: "\e477\e477"; }
+
+.fad.fa-transporter::after, .fa-duotone.fa-transporter::after {
+  content: "\e042\e042"; }
+
+.fad.fa-calendar-circle-user::after, .fa-duotone.fa-calendar-circle-user::after {
+  content: "\e471\e471"; }
+
+.fad.fa-arrow-up-long::after, .fa-duotone.fa-arrow-up-long::after {
+  content: "\f176\f176"; }
+
+.fad.fa-long-arrow-up::after, .fa-duotone.fa-long-arrow-up::after {
+  content: "\f176\f176"; }
+
+.fad.fa-person-carry-box::after, .fa-duotone.fa-person-carry-box::after {
+  content: "\f4cf\f4cf"; }
+
+.fad.fa-person-carry::after, .fa-duotone.fa-person-carry::after {
+  content: "\f4cf\f4cf"; }
+
+.fad.fa-fire-flame-simple::after, .fa-duotone.fa-fire-flame-simple::after {
+  content: "\f46a\f46a"; }
+
+.fad.fa-burn::after, .fa-duotone.fa-burn::after {
+  content: "\f46a\f46a"; }
+
+.fad.fa-person::after, .fa-duotone.fa-person::after {
+  content: "\f183\f183"; }
+
+.fad.fa-male::after, .fa-duotone.fa-male::after {
+  content: "\f183\f183"; }
+
+.fad.fa-laptop::after, .fa-duotone.fa-laptop::after {
+  content: "\f109\f109"; }
+
+.fad.fa-file-csv::after, .fa-duotone.fa-file-csv::after {
+  content: "\f6dd\f6dd"; }
+
+.fad.fa-menorah::after, .fa-duotone.fa-menorah::after {
+  content: "\f676\f676"; }
+
+.fad.fa-union::after, .fa-duotone.fa-union::after {
+  content: "\f6a2\f6a2"; }
+
+.fad.fa-chevrons-left::after, .fa-duotone.fa-chevrons-left::after {
+  content: "\f323\f323"; }
+
+.fad.fa-chevron-double-left::after, .fa-duotone.fa-chevron-double-left::after {
+  content: "\f323\f323"; }
+
+.fad.fa-circle-heart::after, .fa-duotone.fa-circle-heart::after {
+  content: "\f4c7\f4c7"; }
+
+.fad.fa-heart-circle::after, .fa-duotone.fa-heart-circle::after {
+  content: "\f4c7\f4c7"; }
+
+.fad.fa-truck-plane::after, .fa-duotone.fa-truck-plane::after {
+  content: "\e58f\e58f"; }
+
+.fad.fa-record-vinyl::after, .fa-duotone.fa-record-vinyl::after {
+  content: "\f8d9\f8d9"; }
+
+.fad.fa-bring-forward::after, .fa-duotone.fa-bring-forward::after {
+  content: "\f856\f856"; }
+
+.fad.fa-square-p::after, .fa-duotone.fa-square-p::after {
+  content: "\e279\e279"; }
+
+.fad.fa-face-grin-stars::after, .fa-duotone.fa-face-grin-stars::after {
+  content: "\f587\f587"; }
+
+.fad.fa-grin-stars::after, .fa-duotone.fa-grin-stars::after {
+  content: "\f587\f587"; }
+
+.fad.fa-sigma::after, .fa-duotone.fa-sigma::after {
+  content: "\f68b\f68b"; }
+
+.fad.fa-camera-movie::after, .fa-duotone.fa-camera-movie::after {
+  content: "\f8a9\f8a9"; }
+
+.fad.fa-bong::after, .fa-duotone.fa-bong::after {
+  content: "\f55c\f55c"; }
+
+.fad.fa-clarinet::after, .fa-duotone.fa-clarinet::after {
+  content: "\f8ad\f8ad"; }
+
+.fad.fa-truck-flatbed::after, .fa-duotone.fa-truck-flatbed::after {
+  content: "\e2b6\e2b6"; }
+
+.fad.fa-spaghetti-monster-flying::after, .fa-duotone.fa-spaghetti-monster-flying::after {
+  content: "\f67b\f67b"; }
+
+.fad.fa-pastafarianism::after, .fa-duotone.fa-pastafarianism::after {
+  content: "\f67b\f67b"; }
+
+.fad.fa-arrow-down-up-across-line::after, .fa-duotone.fa-arrow-down-up-across-line::after {
+  content: "\e4af\e4af"; }
+
+.fad.fa-leaf-heart::after, .fa-duotone.fa-leaf-heart::after {
+  content: "\f4cb\f4cb"; }
+
+.fad.fa-house-building::after, .fa-duotone.fa-house-building::after {
+  content: "\e1b1\e1b1"; }
+
+.fad.fa-cheese-swiss::after, .fa-duotone.fa-cheese-swiss::after {
+  content: "\f7f0\f7f0"; }
+
+.fad.fa-spoon::after, .fa-duotone.fa-spoon::after {
+  content: "\f2e5\f2e5"; }
+
+.fad.fa-utensil-spoon::after, .fa-duotone.fa-utensil-spoon::after {
+  content: "\f2e5\f2e5"; }
+
+.fad.fa-jar-wheat::after, .fa-duotone.fa-jar-wheat::after {
+  content: "\e517\e517"; }
+
+.fad.fa-envelopes-bulk::after, .fa-duotone.fa-envelopes-bulk::after {
+  content: "\f674\f674"; }
+
+.fad.fa-mail-bulk::after, .fa-duotone.fa-mail-bulk::after {
+  content: "\f674\f674"; }
+
+.fad.fa-file-circle-exclamation::after, .fa-duotone.fa-file-circle-exclamation::after {
+  content: "\e4eb\e4eb"; }
+
+.fad.fa-bow-arrow::after, .fa-duotone.fa-bow-arrow::after {
+  content: "\f6b9\f6b9"; }
+
+.fad.fa-cart-xmark::after, .fa-duotone.fa-cart-xmark::after {
+  content: "\e0dd\e0dd"; }
+
+.fad.fa-hexagon-xmark::after, .fa-duotone.fa-hexagon-xmark::after {
+  content: "\f2ee\f2ee"; }
+
+.fad.fa-times-hexagon::after, .fa-duotone.fa-times-hexagon::after {
+  content: "\f2ee\f2ee"; }
+
+.fad.fa-xmark-hexagon::after, .fa-duotone.fa-xmark-hexagon::after {
+  content: "\f2ee\f2ee"; }
+
+.fad.fa-circle-h::after, .fa-duotone.fa-circle-h::after {
+  content: "\f47e\f47e"; }
+
+.fad.fa-hospital-symbol::after, .fa-duotone.fa-hospital-symbol::after {
+  content: "\f47e\f47e"; }
+
+.fad.fa-merge::after, .fa-duotone.fa-merge::after {
+  content: "\e526\e526"; }
+
+.fad.fa-pager::after, .fa-duotone.fa-pager::after {
+  content: "\f815\f815"; }
+
+.fad.fa-cart-minus::after, .fa-duotone.fa-cart-minus::after {
+  content: "\e0db\e0db"; }
+
+.fad.fa-address-book::after, .fa-duotone.fa-address-book::after {
+  content: "\f2b9\f2b9"; }
+
+.fad.fa-contact-book::after, .fa-duotone.fa-contact-book::after {
+  content: "\f2b9\f2b9"; }
+
+.fad.fa-pan-frying::after, .fa-duotone.fa-pan-frying::after {
+  content: "\e42c\e42c"; }
+
+.fad.fa-grid::after, .fa-duotone.fa-grid::after {
+  content: "\e195\e195"; }
+
+.fad.fa-grid-3::after, .fa-duotone.fa-grid-3::after {
+  content: "\e195\e195"; }
+
+.fad.fa-football-helmet::after, .fa-duotone.fa-football-helmet::after {
+  content: "\f44f\f44f"; }
+
+.fad.fa-hand-love::after, .fa-duotone.fa-hand-love::after {
+  content: "\e1a5\e1a5"; }
+
+.fad.fa-trees::after, .fa-duotone.fa-trees::after {
+  content: "\f724\f724"; }
+
+.fad.fa-strikethrough::after, .fa-duotone.fa-strikethrough::after {
+  content: "\f0cc\f0cc"; }
+
+.fad.fa-page::after, .fa-duotone.fa-page::after {
+  content: "\e428\e428"; }
+
+.fad.fa-k::after, .fa-duotone.fa-k::after {
+  content: "\4b\4b"; }
+
+.fad.fa-diagram-previous::after, .fa-duotone.fa-diagram-previous::after {
+  content: "\e478\e478"; }
+
+.fad.fa-gauge-min::after, .fa-duotone.fa-gauge-min::after {
+  content: "\f628\f628"; }
+
+.fad.fa-tachometer-alt-slowest::after, .fa-duotone.fa-tachometer-alt-slowest::after {
+  content: "\f628\f628"; }
+
+.fad.fa-folder-grid::after, .fa-duotone.fa-folder-grid::after {
+  content: "\e188\e188"; }
+
+.fad.fa-eggplant::after, .fa-duotone.fa-eggplant::after {
+  content: "\e16c\e16c"; }
+
+.fad.fa-ram::after, .fa-duotone.fa-ram::after {
+  content: "\f70a\f70a"; }
+
+.fad.fa-landmark-flag::after, .fa-duotone.fa-landmark-flag::after {
+  content: "\e51c\e51c"; }
+
+.fad.fa-lips::after, .fa-duotone.fa-lips::after {
+  content: "\f600\f600"; }
+
+.fad.fa-pencil::after, .fa-duotone.fa-pencil::after {
+  content: "\f303\f303"; }
+
+.fad.fa-pencil-alt::after, .fa-duotone.fa-pencil-alt::after {
+  content: "\f303\f303"; }
+
+.fad.fa-backward::after, .fa-duotone.fa-backward::after {
+  content: "\f04a\f04a"; }
+
+.fad.fa-caret-right::after, .fa-duotone.fa-caret-right::after {
+  content: "\f0da\f0da"; }
+
+.fad.fa-comments::after, .fa-duotone.fa-comments::after {
+  content: "\f086\f086"; }
+
+.fad.fa-paste::after, .fa-duotone.fa-paste::after {
+  content: "\f0ea\f0ea"; }
+
+.fad.fa-file-clipboard::after, .fa-duotone.fa-file-clipboard::after {
+  content: "\f0ea\f0ea"; }
+
+.fad.fa-desktop-arrow-down::after, .fa-duotone.fa-desktop-arrow-down::after {
+  content: "\e155\e155"; }
+
+.fad.fa-code-pull-request::after, .fa-duotone.fa-code-pull-request::after {
+  content: "\e13c\e13c"; }
+
+.fad.fa-pumpkin::after, .fa-duotone.fa-pumpkin::after {
+  content: "\f707\f707"; }
+
+.fad.fa-clipboard-list::after, .fa-duotone.fa-clipboard-list::after {
+  content: "\f46d\f46d"; }
+
+.fad.fa-pen-field::after, .fa-duotone.fa-pen-field::after {
+  content: "\e211\e211"; }
+
+.fad.fa-blueberries::after, .fa-duotone.fa-blueberries::after {
+  content: "\e2e8\e2e8"; }
+
+.fad.fa-truck-ramp-box::after, .fa-duotone.fa-truck-ramp-box::after {
+  content: "\f4de\f4de"; }
+
+.fad.fa-truck-loading::after, .fa-duotone.fa-truck-loading::after {
+  content: "\f4de\f4de"; }
+
+.fad.fa-note::after, .fa-duotone.fa-note::after {
+  content: "\e1ff\e1ff"; }
+
+.fad.fa-arrow-down-to-square::after, .fa-duotone.fa-arrow-down-to-square::after {
+  content: "\e096\e096"; }
+
+.fad.fa-user-check::after, .fa-duotone.fa-user-check::after {
+  content: "\f4fc\f4fc"; }
+
+.fad.fa-cloud-xmark::after, .fa-duotone.fa-cloud-xmark::after {
+  content: "\e35f\e35f"; }
+
+.fad.fa-vial-virus::after, .fa-duotone.fa-vial-virus::after {
+  content: "\e597\e597"; }
+
+.fad.fa-book-blank::after, .fa-duotone.fa-book-blank::after {
+  content: "\f5d9\f5d9"; }
+
+.fad.fa-book-alt::after, .fa-duotone.fa-book-alt::after {
+  content: "\f5d9\f5d9"; }
+
+.fad.fa-golf-flag-hole::after, .fa-duotone.fa-golf-flag-hole::after {
+  content: "\e3ac\e3ac"; }
+
+.fad.fa-message-arrow-down::after, .fa-duotone.fa-message-arrow-down::after {
+  content: "\e1db\e1db"; }
+
+.fad.fa-comment-alt-arrow-down::after, .fa-duotone.fa-comment-alt-arrow-down::after {
+  content: "\e1db\e1db"; }
+
+.fad.fa-face-unamused::after, .fa-duotone.fa-face-unamused::after {
+  content: "\e39f\e39f"; }
+
+.fad.fa-sheet-plastic::after, .fa-duotone.fa-sheet-plastic::after {
+  content: "\e571\e571"; }
+
+.fad.fa-circle-9::after, .fa-duotone.fa-circle-9::after {
+  content: "\e0f6\e0f6"; }
+
+.fad.fa-blog::after, .fa-duotone.fa-blog::after {
+  content: "\f781\f781"; }
+
+.fad.fa-user-ninja::after, .fa-duotone.fa-user-ninja::after {
+  content: "\f504\f504"; }
+
+.fad.fa-pencil-slash::after, .fa-duotone.fa-pencil-slash::after {
+  content: "\e215\e215"; }
+
+.fad.fa-bowling-pins::after, .fa-duotone.fa-bowling-pins::after {
+  content: "\f437\f437"; }
+
+.fad.fa-person-arrow-up-from-line::after, .fa-duotone.fa-person-arrow-up-from-line::after {
+  content: "\e539\e539"; }
+
+.fad.fa-down-right::after, .fa-duotone.fa-down-right::after {
+  content: "\e16b\e16b"; }
+
+.fad.fa-scroll-torah::after, .fa-duotone.fa-scroll-torah::after {
+  content: "\f6a0\f6a0"; }
+
+.fad.fa-torah::after, .fa-duotone.fa-torah::after {
+  content: "\f6a0\f6a0"; }
+
+.fad.fa-webhook::after, .fa-duotone.fa-webhook::after {
+  content: "\e5d5\e5d5"; }
+
+.fad.fa-blinds-open::after, .fa-duotone.fa-blinds-open::after {
+  content: "\f8fc\f8fc"; }
+
+.fad.fa-fence::after, .fa-duotone.fa-fence::after {
+  content: "\e303\e303"; }
+
+.fad.fa-up::after, .fa-duotone.fa-up::after {
+  content: "\f357\f357"; }
+
+.fad.fa-arrow-alt-up::after, .fa-duotone.fa-arrow-alt-up::after {
+  content: "\f357\f357"; }
+
+.fad.fa-broom-ball::after, .fa-duotone.fa-broom-ball::after {
+  content: "\f458\f458"; }
+
+.fad.fa-quidditch::after, .fa-duotone.fa-quidditch::after {
+  content: "\f458\f458"; }
+
+.fad.fa-quidditch-broom-ball::after, .fa-duotone.fa-quidditch-broom-ball::after {
+  content: "\f458\f458"; }
+
+.fad.fa-drumstick::after, .fa-duotone.fa-drumstick::after {
+  content: "\f6d6\f6d6"; }
+
+.fad.fa-square-v::after, .fa-duotone.fa-square-v::after {
+  content: "\e284\e284"; }
+
+.fad.fa-face-awesome::after, .fa-duotone.fa-face-awesome::after {
+  content: "\e409\e409"; }
+
+.fad.fa-gave-dandy::after, .fa-duotone.fa-gave-dandy::after {
+  content: "\e409\e409"; }
+
+.fad.fa-dial-off::after, .fa-duotone.fa-dial-off::after {
+  content: "\e162\e162"; }
+
+.fad.fa-toggle-off::after, .fa-duotone.fa-toggle-off::after {
+  content: "\f204\f204"; }
+
+.fad.fa-face-smile-horns::after, .fa-duotone.fa-face-smile-horns::after {
+  content: "\e391\e391"; }
+
+.fad.fa-box-archive::after, .fa-duotone.fa-box-archive::after {
+  content: "\f187\f187"; }
+
+.fad.fa-archive::after, .fa-duotone.fa-archive::after {
+  content: "\f187\f187"; }
+
+.fad.fa-grapes::after, .fa-duotone.fa-grapes::after {
+  content: "\e306\e306"; }
+
+.fad.fa-person-drowning::after, .fa-duotone.fa-person-drowning::after {
+  content: "\e545\e545"; }
+
+.fad.fa-dial-max::after, .fa-duotone.fa-dial-max::after {
+  content: "\e15e\e15e"; }
+
+.fad.fa-circle-m::after, .fa-duotone.fa-circle-m::after {
+  content: "\e115\e115"; }
+
+.fad.fa-calendar-image::after, .fa-duotone.fa-calendar-image::after {
+  content: "\e0d4\e0d4"; }
+
+.fad.fa-circle-caret-down::after, .fa-duotone.fa-circle-caret-down::after {
+  content: "\f32d\f32d"; }
+
+.fad.fa-caret-circle-down::after, .fa-duotone.fa-caret-circle-down::after {
+  content: "\f32d\f32d"; }
+
+.fad.fa-arrow-down-9-1::after, .fa-duotone.fa-arrow-down-9-1::after {
+  content: "\f886\f886"; }
+
+.fad.fa-sort-numeric-desc::after, .fa-duotone.fa-sort-numeric-desc::after {
+  content: "\f886\f886"; }
+
+.fad.fa-sort-numeric-down-alt::after, .fa-duotone.fa-sort-numeric-down-alt::after {
+  content: "\f886\f886"; }
+
+.fad.fa-face-grin-tongue-squint::after, .fa-duotone.fa-face-grin-tongue-squint::after {
+  content: "\f58a\f58a"; }
+
+.fad.fa-grin-tongue-squint::after, .fa-duotone.fa-grin-tongue-squint::after {
+  content: "\f58a\f58a"; }
+
+.fad.fa-shish-kebab::after, .fa-duotone.fa-shish-kebab::after {
+  content: "\f821\f821"; }
+
+.fad.fa-spray-can::after, .fa-duotone.fa-spray-can::after {
+  content: "\f5bd\f5bd"; }
+
+.fad.fa-alarm-snooze::after, .fa-duotone.fa-alarm-snooze::after {
+  content: "\f845\f845"; }
+
+.fad.fa-scarecrow::after, .fa-duotone.fa-scarecrow::after {
+  content: "\f70d\f70d"; }
+
+.fad.fa-truck-monster::after, .fa-duotone.fa-truck-monster::after {
+  content: "\f63b\f63b"; }
+
+.fad.fa-gift-card::after, .fa-duotone.fa-gift-card::after {
+  content: "\f663\f663"; }
+
+.fad.fa-w::after, .fa-duotone.fa-w::after {
+  content: "\57\57"; }
+
+.fad.fa-code-pull-request-draft::after, .fa-duotone.fa-code-pull-request-draft::after {
+  content: "\e3fa\e3fa"; }
+
+.fad.fa-square-b::after, .fa-duotone.fa-square-b::after {
+  content: "\e264\e264"; }
+
+.fad.fa-elephant::after, .fa-duotone.fa-elephant::after {
+  content: "\f6da\f6da"; }
+
+.fad.fa-earth-africa::after, .fa-duotone.fa-earth-africa::after {
+  content: "\f57c\f57c"; }
+
+.fad.fa-globe-africa::after, .fa-duotone.fa-globe-africa::after {
+  content: "\f57c\f57c"; }
+
+.fad.fa-rainbow::after, .fa-duotone.fa-rainbow::after {
+  content: "\f75b\f75b"; }
+
+.fad.fa-circle-notch::after, .fa-duotone.fa-circle-notch::after {
+  content: "\f1ce\f1ce"; }
+
+.fad.fa-tablet-screen-button::after, .fa-duotone.fa-tablet-screen-button::after {
+  content: "\f3fa\f3fa"; }
+
+.fad.fa-tablet-alt::after, .fa-duotone.fa-tablet-alt::after {
+  content: "\f3fa\f3fa"; }
+
+.fad.fa-paw::after, .fa-duotone.fa-paw::after {
+  content: "\f1b0\f1b0"; }
+
+.fad.fa-message-question::after, .fa-duotone.fa-message-question::after {
+  content: "\e1e3\e1e3"; }
+
+.fad.fa-cloud::after, .fa-duotone.fa-cloud::after {
+  content: "\f0c2\f0c2"; }
+
+.fad.fa-trowel-bricks::after, .fa-duotone.fa-trowel-bricks::after {
+  content: "\e58a\e58a"; }
+
+.fad.fa-square-3::after, .fa-duotone.fa-square-3::after {
+  content: "\e258\e258"; }
+
+.fad.fa-face-flushed::after, .fa-duotone.fa-face-flushed::after {
+  content: "\f579\f579"; }
+
+.fad.fa-flushed::after, .fa-duotone.fa-flushed::after {
+  content: "\f579\f579"; }
+
+.fad.fa-hospital-user::after, .fa-duotone.fa-hospital-user::after {
+  content: "\f80d\f80d"; }
+
+.fad.fa-microwave::after, .fa-duotone.fa-microwave::after {
+  content: "\e01b\e01b"; }
+
+.fad.fa-chf-sign::after, .fa-duotone.fa-chf-sign::after {
+  content: "\e602\e602"; }
+
+.fad.fa-tent-arrow-left-right::after, .fa-duotone.fa-tent-arrow-left-right::after {
+  content: "\e57f\e57f"; }
+
+.fad.fa-cart-circle-arrow-up::after, .fa-duotone.fa-cart-circle-arrow-up::after {
+  content: "\e3f0\e3f0"; }
+
+.fad.fa-trash-clock::after, .fa-duotone.fa-trash-clock::after {
+  content: "\e2b0\e2b0"; }
+
+.fad.fa-gavel::after, .fa-duotone.fa-gavel::after {
+  content: "\f0e3\f0e3"; }
+
+.fad.fa-legal::after, .fa-duotone.fa-legal::after {
+  content: "\f0e3\f0e3"; }
+
+.fad.fa-sprinkler-ceiling::after, .fa-duotone.fa-sprinkler-ceiling::after {
+  content: "\e44c\e44c"; }
+
+.fad.fa-browsers::after, .fa-duotone.fa-browsers::after {
+  content: "\e0cb\e0cb"; }
+
+.fad.fa-trillium::after, .fa-duotone.fa-trillium::after {
+  content: "\e588\e588"; }
+
+.fad.fa-music-slash::after, .fa-duotone.fa-music-slash::after {
+  content: "\f8d1\f8d1"; }
+
+.fad.fa-truck-ramp::after, .fa-duotone.fa-truck-ramp::after {
+  content: "\f4e0\f4e0"; }
+
+.fad.fa-binoculars::after, .fa-duotone.fa-binoculars::after {
+  content: "\f1e5\f1e5"; }
+
+.fad.fa-microphone-slash::after, .fa-duotone.fa-microphone-slash::after {
+  content: "\f131\f131"; }
+
+.fad.fa-box-tissue::after, .fa-duotone.fa-box-tissue::after {
+  content: "\e05b\e05b"; }
+
+.fad.fa-circle-c::after, .fa-duotone.fa-circle-c::after {
+  content: "\e101\e101"; }
+
+.fad.fa-star-christmas::after, .fa-duotone.fa-star-christmas::after {
+  content: "\f7d4\f7d4"; }
+
+.fad.fa-chart-bullet::after, .fa-duotone.fa-chart-bullet::after {
+  content: "\e0e1\e0e1"; }
+
+.fad.fa-motorcycle::after, .fa-duotone.fa-motorcycle::after {
+  content: "\f21c\f21c"; }
+
+.fad.fa-tree-christmas::after, .fa-duotone.fa-tree-christmas::after {
+  content: "\f7db\f7db"; }
+
+.fad.fa-tire-flat::after, .fa-duotone.fa-tire-flat::after {
+  content: "\f632\f632"; }
+
+.fad.fa-sunglasses::after, .fa-duotone.fa-sunglasses::after {
+  content: "\f892\f892"; }
+
+.fad.fa-badge::after, .fa-duotone.fa-badge::after {
+  content: "\f335\f335"; }
+
+.fad.fa-message-pen::after, .fa-duotone.fa-message-pen::after {
+  content: "\f4a4\f4a4"; }
+
+.fad.fa-comment-alt-edit::after, .fa-duotone.fa-comment-alt-edit::after {
+  content: "\f4a4\f4a4"; }
+
+.fad.fa-message-edit::after, .fa-duotone.fa-message-edit::after {
+  content: "\f4a4\f4a4"; }
+
+.fad.fa-bell-concierge::after, .fa-duotone.fa-bell-concierge::after {
+  content: "\f562\f562"; }
+
+.fad.fa-concierge-bell::after, .fa-duotone.fa-concierge-bell::after {
+  content: "\f562\f562"; }
+
+.fad.fa-pen-ruler::after, .fa-duotone.fa-pen-ruler::after {
+  content: "\f5ae\f5ae"; }
+
+.fad.fa-pencil-ruler::after, .fa-duotone.fa-pencil-ruler::after {
+  content: "\f5ae\f5ae"; }
+
+.fad.fa-arrow-progress::after, .fa-duotone.fa-arrow-progress::after {
+  content: "\e5df\e5df"; }
+
+.fad.fa-chess-rook-piece::after, .fa-duotone.fa-chess-rook-piece::after {
+  content: "\f448\f448"; }
+
+.fad.fa-chess-rook-alt::after, .fa-duotone.fa-chess-rook-alt::after {
+  content: "\f448\f448"; }
+
+.fad.fa-square-root::after, .fa-duotone.fa-square-root::after {
+  content: "\f697\f697"; }
+
+.fad.fa-album-collection-circle-plus::after, .fa-duotone.fa-album-collection-circle-plus::after {
+  content: "\e48e\e48e"; }
+
+.fad.fa-people-arrows::after, .fa-duotone.fa-people-arrows::after {
+  content: "\e068\e068"; }
+
+.fad.fa-people-arrows-left-right::after, .fa-duotone.fa-people-arrows-left-right::after {
+  content: "\e068\e068"; }
+
+.fad.fa-face-angry-horns::after, .fa-duotone.fa-face-angry-horns::after {
+  content: "\e368\e368"; }
+
+.fad.fa-mars-and-venus-burst::after, .fa-duotone.fa-mars-and-venus-burst::after {
+  content: "\e523\e523"; }
+
+.fad.fa-tombstone::after, .fa-duotone.fa-tombstone::after {
+  content: "\f720\f720"; }
+
+.fad.fa-square-caret-right::after, .fa-duotone.fa-square-caret-right::after {
+  content: "\f152\f152"; }
+
+.fad.fa-caret-square-right::after, .fa-duotone.fa-caret-square-right::after {
+  content: "\f152\f152"; }
+
+.fad.fa-scissors::after, .fa-duotone.fa-scissors::after {
+  content: "\f0c4\f0c4"; }
+
+.fad.fa-cut::after, .fa-duotone.fa-cut::after {
+  content: "\f0c4\f0c4"; }
+
+.fad.fa-list-music::after, .fa-duotone.fa-list-music::after {
+  content: "\f8c9\f8c9"; }
+
+.fad.fa-sun-plant-wilt::after, .fa-duotone.fa-sun-plant-wilt::after {
+  content: "\e57a\e57a"; }
+
+.fad.fa-toilets-portable::after, .fa-duotone.fa-toilets-portable::after {
+  content: "\e584\e584"; }
+
+.fad.fa-hockey-puck::after, .fa-duotone.fa-hockey-puck::after {
+  content: "\f453\f453"; }
+
+.fad.fa-mustache::after, .fa-duotone.fa-mustache::after {
+  content: "\e5bc\e5bc"; }
+
+.fad.fa-hyphen::after, .fa-duotone.fa-hyphen::after {
+  content: "\2d\2d"; }
+
+.fad.fa-table::after, .fa-duotone.fa-table::after {
+  content: "\f0ce\f0ce"; }
+
+.fad.fa-user-chef::after, .fa-duotone.fa-user-chef::after {
+  content: "\e3d2\e3d2"; }
+
+.fad.fa-message-image::after, .fa-duotone.fa-message-image::after {
+  content: "\e1e0\e1e0"; }
+
+.fad.fa-comment-alt-image::after, .fa-duotone.fa-comment-alt-image::after {
+  content: "\e1e0\e1e0"; }
+
+.fad.fa-users-medical::after, .fa-duotone.fa-users-medical::after {
+  content: "\f830\f830"; }
+
+.fad.fa-sensor-triangle-exclamation::after, .fa-duotone.fa-sensor-triangle-exclamation::after {
+  content: "\e029\e029"; }
+
+.fad.fa-sensor-alert::after, .fa-duotone.fa-sensor-alert::after {
+  content: "\e029\e029"; }
+
+.fad.fa-magnifying-glass-arrow-right::after, .fa-duotone.fa-magnifying-glass-arrow-right::after {
+  content: "\e521\e521"; }
+
+.fad.fa-tachograph-digital::after, .fa-duotone.fa-tachograph-digital::after {
+  content: "\f566\f566"; }
+
+.fad.fa-digital-tachograph::after, .fa-duotone.fa-digital-tachograph::after {
+  content: "\f566\f566"; }
+
+.fad.fa-face-mask::after, .fa-duotone.fa-face-mask::after {
+  content: "\e37f\e37f"; }
+
+.fad.fa-pickleball::after, .fa-duotone.fa-pickleball::after {
+  content: "\e435\e435"; }
+
+.fad.fa-star-sharp-half::after, .fa-duotone.fa-star-sharp-half::after {
+  content: "\e28c\e28c"; }
+
+.fad.fa-users-slash::after, .fa-duotone.fa-users-slash::after {
+  content: "\e073\e073"; }
+
+.fad.fa-clover::after, .fa-duotone.fa-clover::after {
+  content: "\e139\e139"; }
+
+.fad.fa-meat::after, .fa-duotone.fa-meat::after {
+  content: "\f814\f814"; }
+
+.fad.fa-reply::after, .fa-duotone.fa-reply::after {
+  content: "\f3e5\f3e5"; }
+
+.fad.fa-mail-reply::after, .fa-duotone.fa-mail-reply::after {
+  content: "\f3e5\f3e5"; }
+
+.fad.fa-star-and-crescent::after, .fa-duotone.fa-star-and-crescent::after {
+  content: "\f699\f699"; }
+
+.fad.fa-empty-set::after, .fa-duotone.fa-empty-set::after {
+  content: "\f656\f656"; }
+
+.fad.fa-house-fire::after, .fa-duotone.fa-house-fire::after {
+  content: "\e50c\e50c"; }
+
+.fad.fa-square-minus::after, .fa-duotone.fa-square-minus::after {
+  content: "\f146\f146"; }
+
+.fad.fa-minus-square::after, .fa-duotone.fa-minus-square::after {
+  content: "\f146\f146"; }
+
+.fad.fa-helicopter::after, .fa-duotone.fa-helicopter::after {
+  content: "\f533\f533"; }
+
+.fad.fa-bird::after, .fa-duotone.fa-bird::after {
+  content: "\e469\e469"; }
+
+.fad.fa-compass::after, .fa-duotone.fa-compass::after {
+  content: "\f14e\f14e"; }
+
+.fad.fa-square-caret-down::after, .fa-duotone.fa-square-caret-down::after {
+  content: "\f150\f150"; }
+
+.fad.fa-caret-square-down::after, .fa-duotone.fa-caret-square-down::after {
+  content: "\f150\f150"; }
+
+.fad.fa-heart-half-stroke::after, .fa-duotone.fa-heart-half-stroke::after {
+  content: "\e1ac\e1ac"; }
+
+.fad.fa-heart-half-alt::after, .fa-duotone.fa-heart-half-alt::after {
+  content: "\e1ac\e1ac"; }
+
+.fad.fa-file-circle-question::after, .fa-duotone.fa-file-circle-question::after {
+  content: "\e4ef\e4ef"; }
+
+.fad.fa-laptop-code::after, .fa-duotone.fa-laptop-code::after {
+  content: "\f5fc\f5fc"; }
+
+.fad.fa-joystick::after, .fa-duotone.fa-joystick::after {
+  content: "\f8c5\f8c5"; }
+
+.fad.fa-grill-fire::after, .fa-duotone.fa-grill-fire::after {
+  content: "\e5a4\e5a4"; }
+
+.fad.fa-rectangle-vertical-history::after, .fa-duotone.fa-rectangle-vertical-history::after {
+  content: "\e237\e237"; }
+
+.fad.fa-swatchbook::after, .fa-duotone.fa-swatchbook::after {
+  content: "\f5c3\f5c3"; }
+
+.fad.fa-prescription-bottle::after, .fa-duotone.fa-prescription-bottle::after {
+  content: "\f485\f485"; }
+
+.fad.fa-bars::after, .fa-duotone.fa-bars::after {
+  content: "\f0c9\f0c9"; }
+
+.fad.fa-navicon::after, .fa-duotone.fa-navicon::after {
+  content: "\f0c9\f0c9"; }
+
+.fad.fa-keyboard-left::after, .fa-duotone.fa-keyboard-left::after {
+  content: "\e1c3\e1c3"; }
+
+.fad.fa-people-group::after, .fa-duotone.fa-people-group::after {
+  content: "\e533\e533"; }
+
+.fad.fa-hourglass-end::after, .fa-duotone.fa-hourglass-end::after {
+  content: "\f253\f253"; }
+
+.fad.fa-hourglass-3::after, .fa-duotone.fa-hourglass-3::after {
+  content: "\f253\f253"; }
+
+.fad.fa-heart-crack::after, .fa-duotone.fa-heart-crack::after {
+  content: "\f7a9\f7a9"; }
+
+.fad.fa-heart-broken::after, .fa-duotone.fa-heart-broken::after {
+  content: "\f7a9\f7a9"; }
+
+.fad.fa-face-beam-hand-over-mouth::after, .fa-duotone.fa-face-beam-hand-over-mouth::after {
+  content: "\e47c\e47c"; }
+
+.fad.fa-droplet-percent::after, .fa-duotone.fa-droplet-percent::after {
+  content: "\f750\f750"; }
+
+.fad.fa-humidity::after, .fa-duotone.fa-humidity::after {
+  content: "\f750\f750"; }
+
+.fad.fa-square-up-right::after, .fa-duotone.fa-square-up-right::after {
+  content: "\f360\f360"; }
+
+.fad.fa-external-link-square-alt::after, .fa-duotone.fa-external-link-square-alt::after {
+  content: "\f360\f360"; }
+
+.fad.fa-face-kiss-beam::after, .fa-duotone.fa-face-kiss-beam::after {
+  content: "\f597\f597"; }
+
+.fad.fa-kiss-beam::after, .fa-duotone.fa-kiss-beam::after {
+  content: "\f597\f597"; }
+
+.fad.fa-corn::after, .fa-duotone.fa-corn::after {
+  content: "\f6c7\f6c7"; }
+
+.fad.fa-roller-coaster::after, .fa-duotone.fa-roller-coaster::after {
+  content: "\e324\e324"; }
+
+.fad.fa-photo-film-music::after, .fa-duotone.fa-photo-film-music::after {
+  content: "\e228\e228"; }
+
+.fad.fa-radar::after, .fa-duotone.fa-radar::after {
+  content: "\e024\e024"; }
+
+.fad.fa-sickle::after, .fa-duotone.fa-sickle::after {
+  content: "\f822\f822"; }
+
+.fad.fa-film::after, .fa-duotone.fa-film::after {
+  content: "\f008\f008"; }
+
+.fad.fa-coconut::after, .fa-duotone.fa-coconut::after {
+  content: "\e2f6\e2f6"; }
+
+.fad.fa-ruler-horizontal::after, .fa-duotone.fa-ruler-horizontal::after {
+  content: "\f547\f547"; }
+
+.fad.fa-shield-cross::after, .fa-duotone.fa-shield-cross::after {
+  content: "\f712\f712"; }
+
+.fad.fa-cassette-tape::after, .fa-duotone.fa-cassette-tape::after {
+  content: "\f8ab\f8ab"; }
+
+.fad.fa-square-terminal::after, .fa-duotone.fa-square-terminal::after {
+  content: "\e32a\e32a"; }
+
+.fad.fa-people-robbery::after, .fa-duotone.fa-people-robbery::after {
+  content: "\e536\e536"; }
+
+.fad.fa-lightbulb::after, .fa-duotone.fa-lightbulb::after {
+  content: "\f0eb\f0eb"; }
+
+.fad.fa-caret-left::after, .fa-duotone.fa-caret-left::after {
+  content: "\f0d9\f0d9"; }
+
+.fad.fa-comment-middle::after, .fa-duotone.fa-comment-middle::after {
+  content: "\e149\e149"; }
+
+.fad.fa-trash-can-list::after, .fa-duotone.fa-trash-can-list::after {
+  content: "\e2ab\e2ab"; }
+
+.fad.fa-block::after, .fa-duotone.fa-block::after {
+  content: "\e46a\e46a"; }
+
+.fad.fa-circle-exclamation::after, .fa-duotone.fa-circle-exclamation::after {
+  content: "\f06a\f06a"; }
+
+.fad.fa-exclamation-circle::after, .fa-duotone.fa-exclamation-circle::after {
+  content: "\f06a\f06a"; }
+
+.fad.fa-school-circle-xmark::after, .fa-duotone.fa-school-circle-xmark::after {
+  content: "\e56d\e56d"; }
+
+.fad.fa-arrow-right-from-bracket::after, .fa-duotone.fa-arrow-right-from-bracket::after {
+  content: "\f08b\f08b"; }
+
+.fad.fa-sign-out::after, .fa-duotone.fa-sign-out::after {
+  content: "\f08b\f08b"; }
+
+.fad.fa-face-frown-slight::after, .fa-duotone.fa-face-frown-slight::after {
+  content: "\e376\e376"; }
+
+.fad.fa-circle-chevron-down::after, .fa-duotone.fa-circle-chevron-down::after {
+  content: "\f13a\f13a"; }
+
+.fad.fa-chevron-circle-down::after, .fa-duotone.fa-chevron-circle-down::after {
+  content: "\f13a\f13a"; }
+
+.fad.fa-sidebar-flip::after, .fa-duotone.fa-sidebar-flip::after {
+  content: "\e24f\e24f"; }
+
+.fad.fa-unlock-keyhole::after, .fa-duotone.fa-unlock-keyhole::after {
+  content: "\f13e\f13e"; }
+
+.fad.fa-unlock-alt::after, .fa-duotone.fa-unlock-alt::after {
+  content: "\f13e\f13e"; }
+
+.fad.fa-temperature-list::after, .fa-duotone.fa-temperature-list::after {
+  content: "\e299\e299"; }
+
+.fad.fa-cloud-showers-heavy::after, .fa-duotone.fa-cloud-showers-heavy::after {
+  content: "\f740\f740"; }
+
+.fad.fa-headphones-simple::after, .fa-duotone.fa-headphones-simple::after {
+  content: "\f58f\f58f"; }
+
+.fad.fa-headphones-alt::after, .fa-duotone.fa-headphones-alt::after {
+  content: "\f58f\f58f"; }
+
+.fad.fa-sitemap::after, .fa-duotone.fa-sitemap::after {
+  content: "\f0e8\f0e8"; }
+
+.fad.fa-pipe-section::after, .fa-duotone.fa-pipe-section::after {
+  content: "\e438\e438"; }
+
+.fad.fa-space-station-moon-construction::after, .fa-duotone.fa-space-station-moon-construction::after {
+  content: "\e034\e034"; }
+
+.fad.fa-space-station-moon-alt::after, .fa-duotone.fa-space-station-moon-alt::after {
+  content: "\e034\e034"; }
+
+.fad.fa-circle-dollar-to-slot::after, .fa-duotone.fa-circle-dollar-to-slot::after {
+  content: "\f4b9\f4b9"; }
+
+.fad.fa-donate::after, .fa-duotone.fa-donate::after {
+  content: "\f4b9\f4b9"; }
+
+.fad.fa-memory::after, .fa-duotone.fa-memory::after {
+  content: "\f538\f538"; }
+
+.fad.fa-face-sleeping::after, .fa-duotone.fa-face-sleeping::after {
+  content: "\e38d\e38d"; }
+
+.fad.fa-road-spikes::after, .fa-duotone.fa-road-spikes::after {
+  content: "\e568\e568"; }
+
+.fad.fa-fire-burner::after, .fa-duotone.fa-fire-burner::after {
+  content: "\e4f1\e4f1"; }
+
+.fad.fa-squirrel::after, .fa-duotone.fa-squirrel::after {
+  content: "\f71a\f71a"; }
+
+.fad.fa-arrow-up-to-line::after, .fa-duotone.fa-arrow-up-to-line::after {
+  content: "\f341\f341"; }
+
+.fad.fa-arrow-to-top::after, .fa-duotone.fa-arrow-to-top::after {
+  content: "\f341\f341"; }
+
+.fad.fa-flag::after, .fa-duotone.fa-flag::after {
+  content: "\f024\f024"; }
+
+.fad.fa-face-cowboy-hat::after, .fa-duotone.fa-face-cowboy-hat::after {
+  content: "\e36e\e36e"; }
+
+.fad.fa-hanukiah::after, .fa-duotone.fa-hanukiah::after {
+  content: "\f6e6\f6e6"; }
+
+.fad.fa-chart-scatter-3d::after, .fa-duotone.fa-chart-scatter-3d::after {
+  content: "\e0e8\e0e8"; }
+
+.fad.fa-display-chart-up::after, .fa-duotone.fa-display-chart-up::after {
+  content: "\e5e3\e5e3"; }
+
+.fad.fa-square-code::after, .fa-duotone.fa-square-code::after {
+  content: "\e267\e267"; }
+
+.fad.fa-feather::after, .fa-duotone.fa-feather::after {
+  content: "\f52d\f52d"; }
+
+.fad.fa-volume-low::after, .fa-duotone.fa-volume-low::after {
+  content: "\f027\f027"; }
+
+.fad.fa-volume-down::after, .fa-duotone.fa-volume-down::after {
+  content: "\f027\f027"; }
+
+.fad.fa-xmark-to-slot::after, .fa-duotone.fa-xmark-to-slot::after {
+  content: "\f771\f771"; }
+
+.fad.fa-times-to-slot::after, .fa-duotone.fa-times-to-slot::after {
+  content: "\f771\f771"; }
+
+.fad.fa-vote-nay::after, .fa-duotone.fa-vote-nay::after {
+  content: "\f771\f771"; }
+
+.fad.fa-box-taped::after, .fa-duotone.fa-box-taped::after {
+  content: "\f49a\f49a"; }
+
+.fad.fa-box-alt::after, .fa-duotone.fa-box-alt::after {
+  content: "\f49a\f49a"; }
+
+.fad.fa-comment-slash::after, .fa-duotone.fa-comment-slash::after {
+  content: "\f4b3\f4b3"; }
+
+.fad.fa-swords::after, .fa-duotone.fa-swords::after {
+  content: "\f71d\f71d"; }
+
+.fad.fa-cloud-sun-rain::after, .fa-duotone.fa-cloud-sun-rain::after {
+  content: "\f743\f743"; }
+
+.fad.fa-album::after, .fa-duotone.fa-album::after {
+  content: "\f89f\f89f"; }
+
+.fad.fa-circle-n::after, .fa-duotone.fa-circle-n::after {
+  content: "\e118\e118"; }
+
+.fad.fa-compress::after, .fa-duotone.fa-compress::after {
+  content: "\f066\f066"; }
+
+.fad.fa-wheat-awn::after, .fa-duotone.fa-wheat-awn::after {
+  content: "\e2cd\e2cd"; }
+
+.fad.fa-wheat-alt::after, .fa-duotone.fa-wheat-alt::after {
+  content: "\e2cd\e2cd"; }
+
+.fad.fa-ankh::after, .fa-duotone.fa-ankh::after {
+  content: "\f644\f644"; }
+
+.fad.fa-hands-holding-child::after, .fa-duotone.fa-hands-holding-child::after {
+  content: "\e4fa\e4fa"; }
+
+.fad.fa-asterisk::after, .fa-duotone.fa-asterisk::after {
+  content: "\2a\2a"; }
+
+.fad.fa-key-skeleton-left-right::after, .fa-duotone.fa-key-skeleton-left-right::after {
+  content: "\e3b4\e3b4"; }
+
+.fad.fa-comment-lines::after, .fa-duotone.fa-comment-lines::after {
+  content: "\f4b0\f4b0"; }
+
+.fad.fa-luchador-mask::after, .fa-duotone.fa-luchador-mask::after {
+  content: "\f455\f455"; }
+
+.fad.fa-luchador::after, .fa-duotone.fa-luchador::after {
+  content: "\f455\f455"; }
+
+.fad.fa-mask-luchador::after, .fa-duotone.fa-mask-luchador::after {
+  content: "\f455\f455"; }
+
+.fad.fa-square-check::after, .fa-duotone.fa-square-check::after {
+  content: "\f14a\f14a"; }
+
+.fad.fa-check-square::after, .fa-duotone.fa-check-square::after {
+  content: "\f14a\f14a"; }
+
+.fad.fa-shredder::after, .fa-duotone.fa-shredder::after {
+  content: "\f68a\f68a"; }
+
+.fad.fa-book-open-cover::after, .fa-duotone.fa-book-open-cover::after {
+  content: "\e0c0\e0c0"; }
+
+.fad.fa-book-open-alt::after, .fa-duotone.fa-book-open-alt::after {
+  content: "\e0c0\e0c0"; }
+
+.fad.fa-sandwich::after, .fa-duotone.fa-sandwich::after {
+  content: "\f81f\f81f"; }
+
+.fad.fa-peseta-sign::after, .fa-duotone.fa-peseta-sign::after {
+  content: "\e221\e221"; }
+
+.fad.fa-square-parking-slash::after, .fa-duotone.fa-square-parking-slash::after {
+  content: "\f617\f617"; }
+
+.fad.fa-parking-slash::after, .fa-duotone.fa-parking-slash::after {
+  content: "\f617\f617"; }
+
+.fad.fa-train-tunnel::after, .fa-duotone.fa-train-tunnel::after {
+  content: "\e454\e454"; }
+
+.fad.fa-heading::after, .fa-duotone.fa-heading::after {
+  content: "\f1dc\f1dc"; }
+
+.fad.fa-header::after, .fa-duotone.fa-header::after {
+  content: "\f1dc\f1dc"; }
+
+.fad.fa-ghost::after, .fa-duotone.fa-ghost::after {
+  content: "\f6e2\f6e2"; }
+
+.fad.fa-face-anguished::after, .fa-duotone.fa-face-anguished::after {
+  content: "\e369\e369"; }
+
+.fad.fa-hockey-sticks::after, .fa-duotone.fa-hockey-sticks::after {
+  content: "\f454\f454"; }
+
+.fad.fa-abacus::after, .fa-duotone.fa-abacus::after {
+  content: "\f640\f640"; }
+
+.fad.fa-film-simple::after, .fa-duotone.fa-film-simple::after {
+  content: "\f3a0\f3a0"; }
+
+.fad.fa-film-alt::after, .fa-duotone.fa-film-alt::after {
+  content: "\f3a0\f3a0"; }
+
+.fad.fa-list::after, .fa-duotone.fa-list::after {
+  content: "\f03a\f03a"; }
+
+.fad.fa-list-squares::after, .fa-duotone.fa-list-squares::after {
+  content: "\f03a\f03a"; }
+
+.fad.fa-tree-palm::after, .fa-duotone.fa-tree-palm::after {
+  content: "\f82b\f82b"; }
+
+.fad.fa-square-phone-flip::after, .fa-duotone.fa-square-phone-flip::after {
+  content: "\f87b\f87b"; }
+
+.fad.fa-phone-square-alt::after, .fa-duotone.fa-phone-square-alt::after {
+  content: "\f87b\f87b"; }
+
+.fad.fa-cart-plus::after, .fa-duotone.fa-cart-plus::after {
+  content: "\f217\f217"; }
+
+.fad.fa-gamepad::after, .fa-duotone.fa-gamepad::after {
+  content: "\f11b\f11b"; }
+
+.fad.fa-border-center-v::after, .fa-duotone.fa-border-center-v::after {
+  content: "\f89d\f89d"; }
+
+.fad.fa-circle-dot::after, .fa-duotone.fa-circle-dot::after {
+  content: "\f192\f192"; }
+
+.fad.fa-dot-circle::after, .fa-duotone.fa-dot-circle::after {
+  content: "\f192\f192"; }
+
+.fad.fa-clipboard-medical::after, .fa-duotone.fa-clipboard-medical::after {
+  content: "\e133\e133"; }
+
+.fad.fa-face-dizzy::after, .fa-duotone.fa-face-dizzy::after {
+  content: "\f567\f567"; }
+
+.fad.fa-dizzy::after, .fa-duotone.fa-dizzy::after {
+  content: "\f567\f567"; }
+
+.fad.fa-egg::after, .fa-duotone.fa-egg::after {
+  content: "\f7fb\f7fb"; }
+
+.fad.fa-up-to-line::after, .fa-duotone.fa-up-to-line::after {
+  content: "\f34d\f34d"; }
+
+.fad.fa-arrow-alt-to-top::after, .fa-duotone.fa-arrow-alt-to-top::after {
+  content: "\f34d\f34d"; }
+
+.fad.fa-house-medical-circle-xmark::after, .fa-duotone.fa-house-medical-circle-xmark::after {
+  content: "\e513\e513"; }
+
+.fad.fa-watch-fitness::after, .fa-duotone.fa-watch-fitness::after {
+  content: "\f63e\f63e"; }
+
+.fad.fa-clock-nine-thirty::after, .fa-duotone.fa-clock-nine-thirty::after {
+  content: "\e34d\e34d"; }
+
+.fad.fa-campground::after, .fa-duotone.fa-campground::after {
+  content: "\f6bb\f6bb"; }
+
+.fad.fa-folder-plus::after, .fa-duotone.fa-folder-plus::after {
+  content: "\f65e\f65e"; }
+
+.fad.fa-jug::after, .fa-duotone.fa-jug::after {
+  content: "\f8c6\f8c6"; }
+
+.fad.fa-futbol::after, .fa-duotone.fa-futbol::after {
+  content: "\f1e3\f1e3"; }
+
+.fad.fa-futbol-ball::after, .fa-duotone.fa-futbol-ball::after {
+  content: "\f1e3\f1e3"; }
+
+.fad.fa-soccer-ball::after, .fa-duotone.fa-soccer-ball::after {
+  content: "\f1e3\f1e3"; }
+
+.fad.fa-snow-blowing::after, .fa-duotone.fa-snow-blowing::after {
+  content: "\f761\f761"; }
+
+.fad.fa-paintbrush::after, .fa-duotone.fa-paintbrush::after {
+  content: "\f1fc\f1fc"; }
+
+.fad.fa-paint-brush::after, .fa-duotone.fa-paint-brush::after {
+  content: "\f1fc\f1fc"; }
+
+.fad.fa-lock::after, .fa-duotone.fa-lock::after {
+  content: "\f023\f023"; }
+
+.fad.fa-arrow-down-from-line::after, .fa-duotone.fa-arrow-down-from-line::after {
+  content: "\f345\f345"; }
+
+.fad.fa-arrow-from-top::after, .fa-duotone.fa-arrow-from-top::after {
+  content: "\f345\f345"; }
+
+.fad.fa-gas-pump::after, .fa-duotone.fa-gas-pump::after {
+  content: "\f52f\f52f"; }
+
+.fad.fa-signal-bars-slash::after, .fa-duotone.fa-signal-bars-slash::after {
+  content: "\f694\f694"; }
+
+.fad.fa-signal-alt-slash::after, .fa-duotone.fa-signal-alt-slash::after {
+  content: "\f694\f694"; }
+
+.fad.fa-monkey::after, .fa-duotone.fa-monkey::after {
+  content: "\f6fb\f6fb"; }
+
+.fad.fa-rectangle-pro::after, .fa-duotone.fa-rectangle-pro::after {
+  content: "\e235\e235"; }
+
+.fad.fa-pro::after, .fa-duotone.fa-pro::after {
+  content: "\e235\e235"; }
+
+.fad.fa-house-night::after, .fa-duotone.fa-house-night::after {
+  content: "\e010\e010"; }
+
+.fad.fa-hot-tub-person::after, .fa-duotone.fa-hot-tub-person::after {
+  content: "\f593\f593"; }
+
+.fad.fa-hot-tub::after, .fa-duotone.fa-hot-tub::after {
+  content: "\f593\f593"; }
+
+.fad.fa-globe-pointer::after, .fa-duotone.fa-globe-pointer::after {
+  content: "\e60e\e60e"; }
+
+.fad.fa-blanket::after, .fa-duotone.fa-blanket::after {
+  content: "\f498\f498"; }
+
+.fad.fa-map-location::after, .fa-duotone.fa-map-location::after {
+  content: "\f59f\f59f"; }
+
+.fad.fa-map-marked::after, .fa-duotone.fa-map-marked::after {
+  content: "\f59f\f59f"; }
+
+.fad.fa-house-flood-water::after, .fa-duotone.fa-house-flood-water::after {
+  content: "\e50e\e50e"; }
+
+.fad.fa-comments-question-check::after, .fa-duotone.fa-comments-question-check::after {
+  content: "\e14f\e14f"; }
+
+.fad.fa-tree::after, .fa-duotone.fa-tree::after {
+  content: "\f1bb\f1bb"; }
+
+.fad.fa-arrows-cross::after, .fa-duotone.fa-arrows-cross::after {
+  content: "\e0a2\e0a2"; }
+
+.fad.fa-backpack::after, .fa-duotone.fa-backpack::after {
+  content: "\f5d4\f5d4"; }
+
+.fad.fa-square-small::after, .fa-duotone.fa-square-small::after {
+  content: "\e27e\e27e"; }
+
+.fad.fa-folder-arrow-up::after, .fa-duotone.fa-folder-arrow-up::after {
+  content: "\e054\e054"; }
+
+.fad.fa-folder-upload::after, .fa-duotone.fa-folder-upload::after {
+  content: "\e054\e054"; }
+
+.fad.fa-bridge-lock::after, .fa-duotone.fa-bridge-lock::after {
+  content: "\e4cc\e4cc"; }
+
+.fad.fa-crosshairs-simple::after, .fa-duotone.fa-crosshairs-simple::after {
+  content: "\e59f\e59f"; }
+
+.fad.fa-sack-dollar::after, .fa-duotone.fa-sack-dollar::after {
+  content: "\f81d\f81d"; }
+
+.fad.fa-pen-to-square::after, .fa-duotone.fa-pen-to-square::after {
+  content: "\f044\f044"; }
+
+.fad.fa-edit::after, .fa-duotone.fa-edit::after {
+  content: "\f044\f044"; }
+
+.fad.fa-square-sliders::after, .fa-duotone.fa-square-sliders::after {
+  content: "\f3f0\f3f0"; }
+
+.fad.fa-sliders-h-square::after, .fa-duotone.fa-sliders-h-square::after {
+  content: "\f3f0\f3f0"; }
+
+.fad.fa-car-side::after, .fa-duotone.fa-car-side::after {
+  content: "\f5e4\f5e4"; }
+
+.fad.fa-message-middle-top::after, .fa-duotone.fa-message-middle-top::after {
+  content: "\e1e2\e1e2"; }
+
+.fad.fa-comment-middle-top-alt::after, .fa-duotone.fa-comment-middle-top-alt::after {
+  content: "\e1e2\e1e2"; }
+
+.fad.fa-lightbulb-on::after, .fa-duotone.fa-lightbulb-on::after {
+  content: "\f672\f672"; }
+
+.fad.fa-knife::after, .fa-duotone.fa-knife::after {
+  content: "\f2e4\f2e4"; }
+
+.fad.fa-utensil-knife::after, .fa-duotone.fa-utensil-knife::after {
+  content: "\f2e4\f2e4"; }
+
+.fad.fa-share-nodes::after, .fa-duotone.fa-share-nodes::after {
+  content: "\f1e0\f1e0"; }
+
+.fad.fa-share-alt::after, .fa-duotone.fa-share-alt::after {
+  content: "\f1e0\f1e0"; }
+
+.fad.fa-display-chart-up-circle-dollar::after, .fa-duotone.fa-display-chart-up-circle-dollar::after {
+  content: "\e5e6\e5e6"; }
+
+.fad.fa-wave-sine::after, .fa-duotone.fa-wave-sine::after {
+  content: "\f899\f899"; }
+
+.fad.fa-heart-circle-minus::after, .fa-duotone.fa-heart-circle-minus::after {
+  content: "\e4ff\e4ff"; }
+
+.fad.fa-circle-w::after, .fa-duotone.fa-circle-w::after {
+  content: "\e12c\e12c"; }
+
+.fad.fa-circle-calendar::after, .fa-duotone.fa-circle-calendar::after {
+  content: "\e102\e102"; }
+
+.fad.fa-calendar-circle::after, .fa-duotone.fa-calendar-circle::after {
+  content: "\e102\e102"; }
+
+.fad.fa-hourglass-half::after, .fa-duotone.fa-hourglass-half::after {
+  content: "\f252\f252"; }
+
+.fad.fa-hourglass-2::after, .fa-duotone.fa-hourglass-2::after {
+  content: "\f252\f252"; }
+
+.fad.fa-microscope::after, .fa-duotone.fa-microscope::after {
+  content: "\f610\f610"; }
+
+.fad.fa-sunset::after, .fa-duotone.fa-sunset::after {
+  content: "\f767\f767"; }
+
+.fad.fa-sink::after, .fa-duotone.fa-sink::after {
+  content: "\e06d\e06d"; }
+
+.fad.fa-calendar-exclamation::after, .fa-duotone.fa-calendar-exclamation::after {
+  content: "\f334\f334"; }
+
+.fad.fa-truck-container-empty::after, .fa-duotone.fa-truck-container-empty::after {
+  content: "\e2b5\e2b5"; }
+
+.fad.fa-hand-heart::after, .fa-duotone.fa-hand-heart::after {
+  content: "\f4bc\f4bc"; }
+
+.fad.fa-bag-shopping::after, .fa-duotone.fa-bag-shopping::after {
+  content: "\f290\f290"; }
+
+.fad.fa-shopping-bag::after, .fa-duotone.fa-shopping-bag::after {
+  content: "\f290\f290"; }
+
+.fad.fa-arrow-down-z-a::after, .fa-duotone.fa-arrow-down-z-a::after {
+  content: "\f881\f881"; }
+
+.fad.fa-sort-alpha-desc::after, .fa-duotone.fa-sort-alpha-desc::after {
+  content: "\f881\f881"; }
+
+.fad.fa-sort-alpha-down-alt::after, .fa-duotone.fa-sort-alpha-down-alt::after {
+  content: "\f881\f881"; }
+
+.fad.fa-mitten::after, .fa-duotone.fa-mitten::after {
+  content: "\f7b5\f7b5"; }
+
+.fad.fa-reply-clock::after, .fa-duotone.fa-reply-clock::after {
+  content: "\e239\e239"; }
+
+.fad.fa-reply-time::after, .fa-duotone.fa-reply-time::after {
+  content: "\e239\e239"; }
+
+.fad.fa-person-rays::after, .fa-duotone.fa-person-rays::after {
+  content: "\e54d\e54d"; }
+
+.fad.fa-right::after, .fa-duotone.fa-right::after {
+  content: "\f356\f356"; }
+
+.fad.fa-arrow-alt-right::after, .fa-duotone.fa-arrow-alt-right::after {
+  content: "\f356\f356"; }
+
+.fad.fa-circle-f::after, .fa-duotone.fa-circle-f::after {
+  content: "\e10e\e10e"; }
+
+.fad.fa-users::after, .fa-duotone.fa-users::after {
+  content: "\f0c0\f0c0"; }
+
+.fad.fa-face-pleading::after, .fa-duotone.fa-face-pleading::after {
+  content: "\e386\e386"; }
+
+.fad.fa-eye-slash::after, .fa-duotone.fa-eye-slash::after {
+  content: "\f070\f070"; }
+
+.fad.fa-flask-vial::after, .fa-duotone.fa-flask-vial::after {
+  content: "\e4f3\e4f3"; }
+
+.fad.fa-police-box::after, .fa-duotone.fa-police-box::after {
+  content: "\e021\e021"; }
+
+.fad.fa-cucumber::after, .fa-duotone.fa-cucumber::after {
+  content: "\e401\e401"; }
+
+.fad.fa-head-side-brain::after, .fa-duotone.fa-head-side-brain::after {
+  content: "\f808\f808"; }
+
+.fad.fa-hand::after, .fa-duotone.fa-hand::after {
+  content: "\f256\f256"; }
+
+.fad.fa-hand-paper::after, .fa-duotone.fa-hand-paper::after {
+  content: "\f256\f256"; }
+
+.fad.fa-person-biking-mountain::after, .fa-duotone.fa-person-biking-mountain::after {
+  content: "\f84b\f84b"; }
+
+.fad.fa-biking-mountain::after, .fa-duotone.fa-biking-mountain::after {
+  content: "\f84b\f84b"; }
+
+.fad.fa-utensils-slash::after, .fa-duotone.fa-utensils-slash::after {
+  content: "\e464\e464"; }
+
+.fad.fa-print-magnifying-glass::after, .fa-duotone.fa-print-magnifying-glass::after {
+  content: "\f81a\f81a"; }
+
+.fad.fa-print-search::after, .fa-duotone.fa-print-search::after {
+  content: "\f81a\f81a"; }
+
+.fad.fa-folder-bookmark::after, .fa-duotone.fa-folder-bookmark::after {
+  content: "\e186\e186"; }
+
+.fad.fa-om::after, .fa-duotone.fa-om::after {
+  content: "\f679\f679"; }
+
+.fad.fa-pi::after, .fa-duotone.fa-pi::after {
+  content: "\f67e\f67e"; }
+
+.fad.fa-flask-round-potion::after, .fa-duotone.fa-flask-round-potion::after {
+  content: "\f6e1\f6e1"; }
+
+.fad.fa-flask-potion::after, .fa-duotone.fa-flask-potion::after {
+  content: "\f6e1\f6e1"; }
+
+.fad.fa-face-shush::after, .fa-duotone.fa-face-shush::after {
+  content: "\e38c\e38c"; }
+
+.fad.fa-worm::after, .fa-duotone.fa-worm::after {
+  content: "\e599\e599"; }
+
+.fad.fa-house-circle-xmark::after, .fa-duotone.fa-house-circle-xmark::after {
+  content: "\e50b\e50b"; }
+
+.fad.fa-plug::after, .fa-duotone.fa-plug::after {
+  content: "\f1e6\f1e6"; }
+
+.fad.fa-calendar-circle-exclamation::after, .fa-duotone.fa-calendar-circle-exclamation::after {
+  content: "\e46e\e46e"; }
+
+.fad.fa-square-i::after, .fa-duotone.fa-square-i::after {
+  content: "\e272\e272"; }
+
+.fad.fa-chevron-up::after, .fa-duotone.fa-chevron-up::after {
+  content: "\f077\f077"; }
+
+.fad.fa-face-saluting::after, .fa-duotone.fa-face-saluting::after {
+  content: "\e484\e484"; }
+
+.fad.fa-gauge-simple-low::after, .fa-duotone.fa-gauge-simple-low::after {
+  content: "\f62c\f62c"; }
+
+.fad.fa-tachometer-slow::after, .fa-duotone.fa-tachometer-slow::after {
+  content: "\f62c\f62c"; }
+
+.fad.fa-face-persevering::after, .fa-duotone.fa-face-persevering::after {
+  content: "\e385\e385"; }
+
+.fad.fa-circle-camera::after, .fa-duotone.fa-circle-camera::after {
+  content: "\e103\e103"; }
+
+.fad.fa-camera-circle::after, .fa-duotone.fa-camera-circle::after {
+  content: "\e103\e103"; }
+
+.fad.fa-hand-spock::after, .fa-duotone.fa-hand-spock::after {
+  content: "\f259\f259"; }
+
+.fad.fa-spider-web::after, .fa-duotone.fa-spider-web::after {
+  content: "\f719\f719"; }
+
+.fad.fa-circle-microphone::after, .fa-duotone.fa-circle-microphone::after {
+  content: "\e116\e116"; }
+
+.fad.fa-microphone-circle::after, .fa-duotone.fa-microphone-circle::after {
+  content: "\e116\e116"; }
+
+.fad.fa-book-arrow-up::after, .fa-duotone.fa-book-arrow-up::after {
+  content: "\e0ba\e0ba"; }
+
+.fad.fa-popsicle::after, .fa-duotone.fa-popsicle::after {
+  content: "\e43e\e43e"; }
+
+.fad.fa-command::after, .fa-duotone.fa-command::after {
+  content: "\e142\e142"; }
+
+.fad.fa-blinds::after, .fa-duotone.fa-blinds::after {
+  content: "\f8fb\f8fb"; }
+
+.fad.fa-stopwatch::after, .fa-duotone.fa-stopwatch::after {
+  content: "\f2f2\f2f2"; }
+
+.fad.fa-saxophone::after, .fa-duotone.fa-saxophone::after {
+  content: "\f8dc\f8dc"; }
+
+.fad.fa-square-2::after, .fa-duotone.fa-square-2::after {
+  content: "\e257\e257"; }
+
+.fad.fa-field-hockey-stick-ball::after, .fa-duotone.fa-field-hockey-stick-ball::after {
+  content: "\f44c\f44c"; }
+
+.fad.fa-field-hockey::after, .fa-duotone.fa-field-hockey::after {
+  content: "\f44c\f44c"; }
+
+.fad.fa-arrow-up-square-triangle::after, .fa-duotone.fa-arrow-up-square-triangle::after {
+  content: "\f88b\f88b"; }
+
+.fad.fa-sort-shapes-up-alt::after, .fa-duotone.fa-sort-shapes-up-alt::after {
+  content: "\f88b\f88b"; }
+
+.fad.fa-face-scream::after, .fa-duotone.fa-face-scream::after {
+  content: "\e38b\e38b"; }
+
+.fad.fa-square-m::after, .fa-duotone.fa-square-m::after {
+  content: "\e276\e276"; }
+
+.fad.fa-camera-web::after, .fa-duotone.fa-camera-web::after {
+  content: "\f832\f832"; }
+
+.fad.fa-webcam::after, .fa-duotone.fa-webcam::after {
+  content: "\f832\f832"; }
+
+.fad.fa-comment-arrow-down::after, .fa-duotone.fa-comment-arrow-down::after {
+  content: "\e143\e143"; }
+
+.fad.fa-lightbulb-cfl::after, .fa-duotone.fa-lightbulb-cfl::after {
+  content: "\e5a6\e5a6"; }
+
+.fad.fa-window-frame-open::after, .fa-duotone.fa-window-frame-open::after {
+  content: "\e050\e050"; }
+
+.fad.fa-face-kiss::after, .fa-duotone.fa-face-kiss::after {
+  content: "\f596\f596"; }
+
+.fad.fa-kiss::after, .fa-duotone.fa-kiss::after {
+  content: "\f596\f596"; }
+
+.fad.fa-bridge-circle-xmark::after, .fa-duotone.fa-bridge-circle-xmark::after {
+  content: "\e4cb\e4cb"; }
+
+.fad.fa-period::after, .fa-duotone.fa-period::after {
+  content: "\2e\2e"; }
+
+.fad.fa-face-grin-tongue::after, .fa-duotone.fa-face-grin-tongue::after {
+  content: "\f589\f589"; }
+
+.fad.fa-grin-tongue::after, .fa-duotone.fa-grin-tongue::after {
+  content: "\f589\f589"; }
+
+.fad.fa-up-to-dotted-line::after, .fa-duotone.fa-up-to-dotted-line::after {
+  content: "\e457\e457"; }
+
+.fad.fa-thought-bubble::after, .fa-duotone.fa-thought-bubble::after {
+  content: "\e32e\e32e"; }
+
+.fad.fa-skeleton-ribs::after, .fa-duotone.fa-skeleton-ribs::after {
+  content: "\e5cb\e5cb"; }
+
+.fad.fa-raygun::after, .fa-duotone.fa-raygun::after {
+  content: "\e025\e025"; }
+
+.fad.fa-flute::after, .fa-duotone.fa-flute::after {
+  content: "\f8b9\f8b9"; }
+
+.fad.fa-acorn::after, .fa-duotone.fa-acorn::after {
+  content: "\f6ae\f6ae"; }
+
+.fad.fa-video-arrow-up-right::after, .fa-duotone.fa-video-arrow-up-right::after {
+  content: "\e2c9\e2c9"; }
+
+.fad.fa-grate-droplet::after, .fa-duotone.fa-grate-droplet::after {
+  content: "\e194\e194"; }
+
+.fad.fa-seal-exclamation::after, .fa-duotone.fa-seal-exclamation::after {
+  content: "\e242\e242"; }
+
+.fad.fa-chess-bishop::after, .fa-duotone.fa-chess-bishop::after {
+  content: "\f43a\f43a"; }
+
+.fad.fa-message-sms::after, .fa-duotone.fa-message-sms::after {
+  content: "\e1e5\e1e5"; }
+
+.fad.fa-coffee-beans::after, .fa-duotone.fa-coffee-beans::after {
+  content: "\e13f\e13f"; }
+
+.fad.fa-hat-witch::after, .fa-duotone.fa-hat-witch::after {
+  content: "\f6e7\f6e7"; }
+
+.fad.fa-face-grin-wink::after, .fa-duotone.fa-face-grin-wink::after {
+  content: "\f58c\f58c"; }
+
+.fad.fa-grin-wink::after, .fa-duotone.fa-grin-wink::after {
+  content: "\f58c\f58c"; }
+
+.fad.fa-clock-three-thirty::after, .fa-duotone.fa-clock-three-thirty::after {
+  content: "\e357\e357"; }
+
+.fad.fa-ear-deaf::after, .fa-duotone.fa-ear-deaf::after {
+  content: "\f2a4\f2a4"; }
+
+.fad.fa-deaf::after, .fa-duotone.fa-deaf::after {
+  content: "\f2a4\f2a4"; }
+
+.fad.fa-deafness::after, .fa-duotone.fa-deafness::after {
+  content: "\f2a4\f2a4"; }
+
+.fad.fa-hard-of-hearing::after, .fa-duotone.fa-hard-of-hearing::after {
+  content: "\f2a4\f2a4"; }
+
+.fad.fa-alarm-clock::after, .fa-duotone.fa-alarm-clock::after {
+  content: "\f34e\f34e"; }
+
+.fad.fa-eclipse::after, .fa-duotone.fa-eclipse::after {
+  content: "\f749\f749"; }
+
+.fad.fa-face-relieved::after, .fa-duotone.fa-face-relieved::after {
+  content: "\e389\e389"; }
+
+.fad.fa-road-circle-check::after, .fa-duotone.fa-road-circle-check::after {
+  content: "\e564\e564"; }
+
+.fad.fa-dice-five::after, .fa-duotone.fa-dice-five::after {
+  content: "\f523\f523"; }
+
+.fad.fa-octagon-minus::after, .fa-duotone.fa-octagon-minus::after {
+  content: "\f308\f308"; }
+
+.fad.fa-minus-octagon::after, .fa-duotone.fa-minus-octagon::after {
+  content: "\f308\f308"; }
+
+.fad.fa-square-rss::after, .fa-duotone.fa-square-rss::after {
+  content: "\f143\f143"; }
+
+.fad.fa-rss-square::after, .fa-duotone.fa-rss-square::after {
+  content: "\f143\f143"; }
+
+.fad.fa-face-zany::after, .fa-duotone.fa-face-zany::after {
+  content: "\e3a4\e3a4"; }
+
+.fad.fa-tricycle::after, .fa-duotone.fa-tricycle::after {
+  content: "\e5c3\e5c3"; }
+
+.fad.fa-land-mine-on::after, .fa-duotone.fa-land-mine-on::after {
+  content: "\e51b\e51b"; }
+
+.fad.fa-square-arrow-up-left::after, .fa-duotone.fa-square-arrow-up-left::after {
+  content: "\e263\e263"; }
+
+.fad.fa-i-cursor::after, .fa-duotone.fa-i-cursor::after {
+  content: "\f246\f246"; }
+
+.fad.fa-chart-mixed-up-circle-dollar::after, .fa-duotone.fa-chart-mixed-up-circle-dollar::after {
+  content: "\e5d9\e5d9"; }
+
+.fad.fa-salt-shaker::after, .fa-duotone.fa-salt-shaker::after {
+  content: "\e446\e446"; }
+
+.fad.fa-stamp::after, .fa-duotone.fa-stamp::after {
+  content: "\f5bf\f5bf"; }
+
+.fad.fa-file-plus::after, .fa-duotone.fa-file-plus::after {
+  content: "\f319\f319"; }
+
+.fad.fa-draw-square::after, .fa-duotone.fa-draw-square::after {
+  content: "\f5ef\f5ef"; }
+
+.fad.fa-toilet-paper-under-slash::after, .fa-duotone.fa-toilet-paper-under-slash::after {
+  content: "\e2a1\e2a1"; }
+
+.fad.fa-toilet-paper-reverse-slash::after, .fa-duotone.fa-toilet-paper-reverse-slash::after {
+  content: "\e2a1\e2a1"; }
+
+.fad.fa-stairs::after, .fa-duotone.fa-stairs::after {
+  content: "\e289\e289"; }
+
+.fad.fa-drone-front::after, .fa-duotone.fa-drone-front::after {
+  content: "\f860\f860"; }
+
+.fad.fa-drone-alt::after, .fa-duotone.fa-drone-alt::after {
+  content: "\f860\f860"; }
+
+.fad.fa-glass-empty::after, .fa-duotone.fa-glass-empty::after {
+  content: "\e191\e191"; }
+
+.fad.fa-dial-high::after, .fa-duotone.fa-dial-high::after {
+  content: "\e15c\e15c"; }
+
+.fad.fa-user-helmet-safety::after, .fa-duotone.fa-user-helmet-safety::after {
+  content: "\f82c\f82c"; }
+
+.fad.fa-user-construction::after, .fa-duotone.fa-user-construction::after {
+  content: "\f82c\f82c"; }
+
+.fad.fa-user-hard-hat::after, .fa-duotone.fa-user-hard-hat::after {
+  content: "\f82c\f82c"; }
+
+.fad.fa-i::after, .fa-duotone.fa-i::after {
+  content: "\49\49"; }
+
+.fad.fa-hryvnia-sign::after, .fa-duotone.fa-hryvnia-sign::after {
+  content: "\f6f2\f6f2"; }
+
+.fad.fa-hryvnia::after, .fa-duotone.fa-hryvnia::after {
+  content: "\f6f2\f6f2"; }
+
+.fad.fa-arrow-down-left-and-arrow-up-right-to-center::after, .fa-duotone.fa-arrow-down-left-and-arrow-up-right-to-center::after {
+  content: "\e092\e092"; }
+
+.fad.fa-pills::after, .fa-duotone.fa-pills::after {
+  content: "\f484\f484"; }
+
+.fad.fa-face-grin-wide::after, .fa-duotone.fa-face-grin-wide::after {
+  content: "\f581\f581"; }
+
+.fad.fa-grin-alt::after, .fa-duotone.fa-grin-alt::after {
+  content: "\f581\f581"; }
+
+.fad.fa-tooth::after, .fa-duotone.fa-tooth::after {
+  content: "\f5c9\f5c9"; }
+
+.fad.fa-basketball-hoop::after, .fa-duotone.fa-basketball-hoop::after {
+  content: "\f435\f435"; }
+
+.fad.fa-objects-align-bottom::after, .fa-duotone.fa-objects-align-bottom::after {
+  content: "\e3bb\e3bb"; }
+
+.fad.fa-v::after, .fa-duotone.fa-v::after {
+  content: "\56\56"; }
+
+.fad.fa-sparkles::after, .fa-duotone.fa-sparkles::after {
+  content: "\f890\f890"; }
+
+.fad.fa-squid::after, .fa-duotone.fa-squid::after {
+  content: "\e450\e450"; }
+
+.fad.fa-leafy-green::after, .fa-duotone.fa-leafy-green::after {
+  content: "\e41d\e41d"; }
+
+.fad.fa-circle-arrow-up-right::after, .fa-duotone.fa-circle-arrow-up-right::after {
+  content: "\e0fc\e0fc"; }
+
+.fad.fa-calendars::after, .fa-duotone.fa-calendars::after {
+  content: "\e0d7\e0d7"; }
+
+.fad.fa-bangladeshi-taka-sign::after, .fa-duotone.fa-bangladeshi-taka-sign::after {
+  content: "\e2e6\e2e6"; }
+
+.fad.fa-bicycle::after, .fa-duotone.fa-bicycle::after {
+  content: "\f206\f206"; }
+
+.fad.fa-hammer-war::after, .fa-duotone.fa-hammer-war::after {
+  content: "\f6e4\f6e4"; }
+
+.fad.fa-circle-d::after, .fa-duotone.fa-circle-d::after {
+  content: "\e104\e104"; }
+
+.fad.fa-spider-black-widow::after, .fa-duotone.fa-spider-black-widow::after {
+  content: "\f718\f718"; }
+
+.fad.fa-staff-snake::after, .fa-duotone.fa-staff-snake::after {
+  content: "\e579\e579"; }
+
+.fad.fa-rod-asclepius::after, .fa-duotone.fa-rod-asclepius::after {
+  content: "\e579\e579"; }
+
+.fad.fa-rod-snake::after, .fa-duotone.fa-rod-snake::after {
+  content: "\e579\e579"; }
+
+.fad.fa-staff-aesculapius::after, .fa-duotone.fa-staff-aesculapius::after {
+  content: "\e579\e579"; }
+
+.fad.fa-pear::after, .fa-duotone.fa-pear::after {
+  content: "\e20c\e20c"; }
+
+.fad.fa-head-side-cough-slash::after, .fa-duotone.fa-head-side-cough-slash::after {
+  content: "\e062\e062"; }
+
+.fad.fa-triangle::after, .fa-duotone.fa-triangle::after {
+  content: "\f2ec\f2ec"; }
+
+.fad.fa-apartment::after, .fa-duotone.fa-apartment::after {
+  content: "\e468\e468"; }
+
+.fad.fa-truck-medical::after, .fa-duotone.fa-truck-medical::after {
+  content: "\f0f9\f0f9"; }
+
+.fad.fa-ambulance::after, .fa-duotone.fa-ambulance::after {
+  content: "\f0f9\f0f9"; }
+
+.fad.fa-pepper::after, .fa-duotone.fa-pepper::after {
+  content: "\e432\e432"; }
+
+.fad.fa-piano::after, .fa-duotone.fa-piano::after {
+  content: "\f8d4\f8d4"; }
+
+.fad.fa-gun-squirt::after, .fa-duotone.fa-gun-squirt::after {
+  content: "\e19d\e19d"; }
+
+.fad.fa-wheat-awn-circle-exclamation::after, .fa-duotone.fa-wheat-awn-circle-exclamation::after {
+  content: "\e598\e598"; }
+
+.fad.fa-snowman::after, .fa-duotone.fa-snowman::after {
+  content: "\f7d0\f7d0"; }
+
+.fad.fa-user-alien::after, .fa-duotone.fa-user-alien::after {
+  content: "\e04a\e04a"; }
+
+.fad.fa-shield-check::after, .fa-duotone.fa-shield-check::after {
+  content: "\f2f7\f2f7"; }
+
+.fad.fa-mortar-pestle::after, .fa-duotone.fa-mortar-pestle::after {
+  content: "\f5a7\f5a7"; }
+
+.fad.fa-road-barrier::after, .fa-duotone.fa-road-barrier::after {
+  content: "\e562\e562"; }
+
+.fad.fa-chart-candlestick::after, .fa-duotone.fa-chart-candlestick::after {
+  content: "\e0e2\e0e2"; }
+
+.fad.fa-briefcase-blank::after, .fa-duotone.fa-briefcase-blank::after {
+  content: "\e0c8\e0c8"; }
+
+.fad.fa-school::after, .fa-duotone.fa-school::after {
+  content: "\f549\f549"; }
+
+.fad.fa-igloo::after, .fa-duotone.fa-igloo::after {
+  content: "\f7ae\f7ae"; }
+
+.fad.fa-bracket-round::after, .fa-duotone.fa-bracket-round::after {
+  content: "\28\28"; }
+
+.fad.fa-parenthesis::after, .fa-duotone.fa-parenthesis::after {
+  content: "\28\28"; }
+
+.fad.fa-joint::after, .fa-duotone.fa-joint::after {
+  content: "\f595\f595"; }
+
+.fad.fa-horse-saddle::after, .fa-duotone.fa-horse-saddle::after {
+  content: "\f8c3\f8c3"; }
+
+.fad.fa-mug-marshmallows::after, .fa-duotone.fa-mug-marshmallows::after {
+  content: "\f7b7\f7b7"; }
+
+.fad.fa-filters::after, .fa-duotone.fa-filters::after {
+  content: "\e17e\e17e"; }
+
+.fad.fa-bell-on::after, .fa-duotone.fa-bell-on::after {
+  content: "\f8fa\f8fa"; }
+
+.fad.fa-angle-right::after, .fa-duotone.fa-angle-right::after {
+  content: "\f105\f105"; }
+
+.fad.fa-dial-med::after, .fa-duotone.fa-dial-med::after {
+  content: "\e15f\e15f"; }
+
+.fad.fa-horse::after, .fa-duotone.fa-horse::after {
+  content: "\f6f0\f6f0"; }
+
+.fad.fa-q::after, .fa-duotone.fa-q::after {
+  content: "\51\51"; }
+
+.fad.fa-monitor-waveform::after, .fa-duotone.fa-monitor-waveform::after {
+  content: "\f611\f611"; }
+
+.fad.fa-monitor-heart-rate::after, .fa-duotone.fa-monitor-heart-rate::after {
+  content: "\f611\f611"; }
+
+.fad.fa-link-simple::after, .fa-duotone.fa-link-simple::after {
+  content: "\e1cd\e1cd"; }
+
+.fad.fa-whistle::after, .fa-duotone.fa-whistle::after {
+  content: "\f460\f460"; }
+
+.fad.fa-g::after, .fa-duotone.fa-g::after {
+  content: "\47\47"; }
+
+.fad.fa-wine-glass-crack::after, .fa-duotone.fa-wine-glass-crack::after {
+  content: "\f4bb\f4bb"; }
+
+.fad.fa-fragile::after, .fa-duotone.fa-fragile::after {
+  content: "\f4bb\f4bb"; }
+
+.fad.fa-slot-machine::after, .fa-duotone.fa-slot-machine::after {
+  content: "\e3ce\e3ce"; }
+
+.fad.fa-notes-medical::after, .fa-duotone.fa-notes-medical::after {
+  content: "\f481\f481"; }
+
+.fad.fa-car-wash::after, .fa-duotone.fa-car-wash::after {
+  content: "\f5e6\f5e6"; }
+
+.fad.fa-escalator::after, .fa-duotone.fa-escalator::after {
+  content: "\e171\e171"; }
+
+.fad.fa-comment-image::after, .fa-duotone.fa-comment-image::after {
+  content: "\e148\e148"; }
+
+.fad.fa-temperature-half::after, .fa-duotone.fa-temperature-half::after {
+  content: "\f2c9\f2c9"; }
+
+</style>
+
+
+
+<body>
+<header class="tm-header" id="tm-header">
+        <div class="tm-header-wrapper">
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="tm-site-header">
+                <h2 class="text-center">Sprunki</h2>
+            </div>
+            <nav class="tm-nav" id="tm-nav">
+                <ul>
+<li class="tm-nav-item"><a href="/sprunki-phase-3/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Sprunki phase 3</a></li>
+<li class="tm-nav-item"><a href="/tunner-sprunki/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Tunner Sprunki</a></li>
+<li class="tm-nav-item"><a href="/sprunki-but-i-ruined-it/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Sprunki but i ruined it</a></li>
+<li class="tm-nav-item"><a href="/sprunki-remastered/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Sprunki remastered</a></li>
+<li class="tm-nav-item"><a href="/wenda-sprunki/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Wenda Sprunki</a></li>
+<li class="tm-nav-item"><a href="/sprunki-cocrea-world/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Sprunki cocrea world</a></li>
+<li class="tm-nav-item"><a href="/incredibox-sprunki-scratch/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Incredibox Sprunki Scratch</a></li>
+<li class="tm-nav-item"><a href="/sprunki-dandys-world/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Sprunki dandys world</a></li>
+<li class="tm-nav-item"><a href="/sprunki-infected/" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Sprunki infected</a></li>
+<li class="tm-nav-item"><a href="/catego/new.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>NEW</a></li>
+<li class="tm-nav-item"><a href="/catego/puzzle.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Puzzle</a></li>
+<li class="tm-nav-item"><a href="/catego/adventure.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Adventure</a></li>
+<li class="tm-nav-item"><a href="/catego/multiplayer.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Multiplayer</a></li>
+<li class="tm-nav-item"><a href="/catego/action.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Action</a></li>
+<li class="tm-nav-item"><a href="/catego/3d.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>3D</a></li>
+<li class="tm-nav-item"><a href="/catego/stickman.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Stickman</a></li>
+<li class="tm-nav-item"><a href="/catego/idle.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Idle</a></li>
+<li class="tm-nav-item"><a href="/catego/sports.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Sports</a></li>
+<li class="tm-nav-item"><a href="/catego/car.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Car</a></li>
+<li class="tm-nav-item"><a href="/catego/skill.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Skill</a></li>
+<li class="tm-nav-item"><a href="/catego/running.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Running</a></li>
+<li class="tm-nav-item"><a href="/catego/shooting.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Shooting</a></li>
+<li class="tm-nav-item"><a href="/catego/racing.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>Racing</a></li>
+<li class="tm-nav-item"><a href="/catego/2-player.html" class="tm-nav-link"><i class="fa-solid fa-gamepad"></i>2 Player</a></li>
+<li class="tm-nav-item"><a href="/privacy-policy.html" class="tm-nav-link"><i class="fas fa-exclamation"></i>Privacy Policy</a></li>
+</ul>
+            </nav>
+            <div class="tm-mb-65">
+                <a rel="nofollow" href="https://fb.com" class="tm-social-link">
+                    <i class="fab fa-facebook tm-social-icon"></i>
+                </a>
+                <a href="https://twitter.com" class="tm-social-link">
+                    <i class="fab fa-twitter tm-social-icon"></i>
+                </a>
+                <a href="https://instagram.com" class="tm-social-link">
+                    <i class="fab fa-instagram tm-social-icon"></i>
+                </a>
+                <a href="https://linkedin.com" class="tm-social-link">
+                    <i class="fab fa-linkedin tm-social-icon"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="container-fluid">
+        <main class="tm-main">
+        <!-- Search form -->
+                    <div class="row tm-row">
+                        <div class="col-12">
+                            <form method="GET" class="form-inline tm-mb-80 tm-search-form">
+                                <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+                                <button class="tm-search-button" type="submit">
+                                    <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+            <div class="row tm-row">
+
+		    <div style="margin: 0 auto; width: 100%; margin-bottom: 35px; text-align: center; padding-top:75px; padding-bottom:65px; background:#7fedfc; border-radius: 10px">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333300682513704"
+     crossorigin="anonymous"></script>
+<!-- sprunkisprunk.github.io-1 -->
+<ins class="adsbygoogle"
+     style="display: inline-block; min-width: 580px; max-width: 580px; width: 580px; height: 400px;"
+     data-ad-client="ca-pub-5333300682513704"
+     data-ad-slot="9621374220"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+                    <div class="col-lg-12 tm-post-col" style="background: #b431df;">
+                    <div class="tm-post-full1">
+                        <div class="mb-4">
+                            <h1 style="color: #fff;"class="pt-2 tm-color-primary tm-post-title">Sprunki Dandy's World</h1>
+                        </div>
+                    </div>
+                </div>
+
+	<div class="col-lg-12 tm-post-col" style="padding-top:15px;">
+                    <div class="tm-post-full1">
+                        <div class="mb-4">
+<p><em>Sprunki Dandy's World</em> is the ultimate online game for music lovers and creative minds. This interactive experience combines the fun characters of <em>Dandy's World</em> with Sprunki's unique sound universe, giving players a powerful tool to make their own music easily. With an intuitive sound-mixing interface, <em>Sprunki Dandy's World</em> lets you create beats and rhythms, experiment with sounds, and enjoy endless possibilities for musical creativity. Accessible for beginners and seasoned musicians alike, this game makes every player feel like a music producer, offering exciting ways to compose, arrange, and refine original beats with just a few clicks.</p>
+                        </div>
+                     </div>
+        </div>
+				
+				
+				<div class="banner-ad-wrapper" style="margin: 0 auto; width: 100%; text-align: center;">
+          
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333300682513704"
+     crossorigin="anonymous"></script>
+<!-- sprunkisprunk.github.io-2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5333300682513704"
+     data-ad-slot="7654029313"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                 
+      </div>
+
+
+        <!-- New games section -->
+        <h3 style="padding-top: 80px;" class="section-title">New Games</h3>
+        <div class="row grid-container">
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/life-the-game.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/life-the-game.png" alt="Life The Game" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/doodle-champion-island.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/doodle-champion-island.png" alt="Doodle Champion Island" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/escaping-the-prison.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/escaping-the-prison.png" alt="Escaping The Prison" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/ultimate-car-driving.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/ultimate-car-driving.png" alt="Ultimate Car Driving" class="img-fluid"></div></a>
+</article>
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/fortz.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/fortz.png" alt="Fortz" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/stickman-climb-2.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/stickman-climb-2.png" alt="Stickman Climb 2" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/build-crush.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/build-crush.png" alt="Build And Crush" class="img-fluid"></div></a>
+</article>
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/word-city-uncrossed.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/word-city-uncrossed.png" alt="Word City Uncrossed" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/11-11.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/11-11.png" alt="11-11" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/infinity-loop.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/infinity-loop.png" alt="Infinity Loop" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/minesweeper.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/minesweeper.png" alt="Minesweeper" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/heart-star-html5.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/heart-star-html5.png" alt="Heart Star" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/factory-balls-forever.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/factory-balls-forever.png" alt="Factory Balls Forever" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/maze-planet-3d.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/maze-planet-3d.png" alt="Maze Planet 3D" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/icy-purple-head-3.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/icy-purple-head-3.png" alt="Icy Purple Head 3" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/wizard-mike.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/wizard-mike.png" alt="Wizard Mike" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/bloxorz.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/bloxorz.png" alt="Bloxorz" class="img-fluid"></div></a>
+</article>
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/duck-life-2-world-champion.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/duck-life-2-world-champion.png" alt="Duck Life 2" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/plactions.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/plactions.png" alt="Plactions" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/brain-for-monster-truck.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/brain-for-monster-truck.png" alt="Brain For Monster Truck" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/tetris-flash.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/tetris-flash.png" alt="Tetris Flash" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/2048-cupcakes.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/2048-cupcakes.png" alt="2048 Cupcakes" class="img-fluid"></div></a>
+</article>
+
+
+
+
+
+
+
+
+
+        </div> <!-- end New -->
+
+
+
+
+        <!-- Popular games section -->
+        <h3 style="padding-top: 40px;" class="section-title">Popular Games</h3>
+        <div class="row grid-container">
+
+
+            
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/grand-prix-hero.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/grand-prix-hero.png" alt="Grand Prix Hero" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/rally-champion.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/rally-champion.png" alt="Rally Champion" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/real-cars-in-city.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/real-cars-in-city.png" alt="Real Cars In City" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/3d-car-simulator.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/3d-car-simulator.png" alt="3d Car Simulator" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/stair-race-3d.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/stair-race-3d.png" alt="Stair Race 3d" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/city-bike-stunt-2.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/city-bike-stunt-2.png" alt="City Bike Stunt 2" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/recoil.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/recoil.png" alt="Recoil" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/cat-trap.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/cat-trap.png" alt="Cat Trap" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/where-is-my-cat.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/where-is-my-cat.png" alt="Where Is My Cat" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/riddle-school.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/riddle-school.png" alt="Riddle School" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/jumping-shell.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/jumping-shell.png" alt="Jumping Shell" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/g-switch-3.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/g-switch-3.png" alt="G Switch 3" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/masked-forces.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/masked-forces.png" alt="Masked Forces" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/thumb-fighter.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/thumb-fighter.png" alt="Thumb Fighter" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/soccer-skills-champions-league.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/soccer-skills-champions-league.png" alt="Soccer Skills Champions League" class="img-fluid"></div></a>
+</article>
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/bloons-tower-defense-1.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/bloons-tower-defense-1.png" alt="Bloons Tower Defense 1" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/drunken-duel.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/drunken-duel.png" alt="Drunken Duel" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/rusher-crusher.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/rusher-crusher.png" alt="Rusher Crusher" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/slope-2-multiplayer.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/slope-2-multiplayer.png" alt="Slope 2 Multiplayer" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/rooftop-snipers.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/rooftop-snipers.png" alt="Rooftop Snipers" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/temple-of-boom.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/temple-of-boom.png" alt="Temple Of Boom" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/iron-snout.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/iron-snout.png" alt="Iron Snout" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/aqua-thrills.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/aqua-thrills.png" alt="Aqua Thrills" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/adventure-drivers.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/adventure-drivers.png" alt="Adventure Drivers" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/there-is-no-game.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/there-is-no-game.png" alt="There Is No Game" class="img-fluid"></div></a>
+</article>
+
+
+
+
+<article class="col-12 col-md-6 tm-post"><hr class="tm-hr-primary">
+  <a href="/in/breaking-the-bank.html" class="effect-lily tm-post-link tm-pt-60">
+<div class="tm-post-link-inner">
+<img src="/img/breaking-the-bank.png" alt="Breaking The Bank" class="img-fluid"></div></a>
+</article>
+
+
+
+
+
+
+        </div> <!-- end Poplular -->
+
+
+
+
+
+        <div class="row tm-row">
+                <div class="col-lg-12 tm-post-col">
+                    <div class="tm-post-full1">
+                        <div class="mb-4">
+
+<h2>Create Unique Beats in Sprunki Dandy's World</h2>
+<p>In <em>Sprunki Dandy's World</em>, players are invited to craft unique musical compositions by selecting and combining a range of sounds. The easy-to-use interface guides players through every step, allowing anyone to create catchy rhythms with ease. Simply drag, drop, and layer sounds to produce custom tracks that sound professional. With quirky effects, adjustable rhythms, and an endless variety of sounds, <em>Sprunki Dandy's World</em> is the best platform for creating original music. Each sound is designed to add richness to your tracks, and you can refine and fine-tune to make each composition truly your own.</p>
+<h2>Meet the Characters and Sounds of Sprunki Dandy's World</h2>
+<p>One of the most exciting features of <em>Sprunki Dandy's World</em> is the lineup of colorful, beloved characters from <em>Dandy's World</em>. These characters bring a fun and engaging visual experience, making the music-making journey even more enjoyable. Each character represents a unique sound theme, which means that by combining different characters, players can create music in different styles. From playful pop beats to experimental soundscapes, the options are limitless. This feature makes <em>Sprunki Dandy's World</em> a top choice for players who want variety and creativity in a user-friendly game setting.</p>
+<h2>Share Your Music Creations with the Sprunki Dandy's World Community</h2>
+<p><em>Sprunki Dandy's World</em> encourages players to share their musical creations with friends and other players online. Once you've crafted your beats, you can record, save, and share them directly through the game or on social media platforms, connecting with a community of music lovers and creators. Listen to beats by other players for inspiration, learn new techniques, and join a community of sound creators. The sharing feature not only allows for personal growth and discovery but also helps players showcase their talent and connect with others who share a love for music.</p>
+<p>Get started with <em>Sprunki Dandy's World</em> and unleash your creativity in this innovative musical playground! Whether you're here for the fun or aiming to create polished compositions, this game provides the tools, characters, and sounds to bring your musical ideas to life. Explore <em>Sprunki Dandy's World</em> now and start creating your music masterpiece today!</p>
+<p>Visit <a href="https://sprunkisprunk.github.io/" target="_new" rel="noopener">Sprunki Dandy's World</a> to start your journey.</p>
+
+                        </div>
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+    </div> <!-- end container -->
+
+
+
+
+
+
+    <footer class="row tm-row">
+                            <hr class="col-12">
+                            <div class="col-md-6 col-12 tm-color-gray">
+          <!--LiveInternet counter--><a href="https://www.liveinternet.ru/click"
+target="_blank"><img id="licnt6ACE" width="0" height="0" style="border:0" 
+title="LiveInternet"
+src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+alt=""/></a><script>(function(d,s){d.getElementById("licnt6ACE").src=
+"https://counter.yadro.ru/hit?t38.10;r"+escape(d.referrer)+
+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+";h"+escape(d.title.substring(0,150))+";"+Math.random()})
+(document,screen)</script><!--/LiveInternet-->
+        <a href="/" class="tm-external-link">Sprunki</a>
+                            </div>
+                        </footer>
+
+        </main>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/templatemo-script.js"></script>
+</body>
+</html>
